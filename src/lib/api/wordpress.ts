@@ -100,7 +100,7 @@ interface WordPressCategory {
     [key: string]: unknown;
 }
 
-const BASE_URL = "http://localhost/BitBrew/wp-json/wp/v2";
+const BASE_URL = "http://16.171.174.185/wp-json/wp/v2";
 
 /**
  * Fetches a post from WordPress API by slug
@@ -815,7 +815,7 @@ export async function sendContactForm(
         formData.append("_wpcf7_posted_data_hash", "");
 
         const response = await fetch(
-            `http://localhost/BitBrew/wp-json/contact-form-7/v1/contact-forms/${formId}/feedback`,
+            `http://16.171.174.185/wp-json/contact-form-7/v1/contact-forms/${formId}/feedback`,
             {
                 method: "POST",
                 body: formData,

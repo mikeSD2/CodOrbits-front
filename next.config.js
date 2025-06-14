@@ -36,7 +36,7 @@ const nextConfig = {
         SITE_URL: process.env.SITE_URL || "http://localhost:3000",
         WORDPRESS_API_URL:
             process.env.WORDPRESS_API_URL ||
-            "http://localhost/BitBrew/wp-json/wp/v2",
+            "http://16.171.174.185/wp-json/wp/v2",
     },
 };
 
