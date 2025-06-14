@@ -6,27 +6,15 @@ import { Metadata } from "next";
 import { decode } from "html-entities";
 import PostContent from "../../components/PostContent";
 
-// Интерфейс для обычного поста
-interface RegularPost {
-    slug: string;
-    title: string;
-    content: string;
-    coverImage: string;
-    date: string;
-    author: {
-        name: string;
-        avatar: string;
-    };
-}
-
 // Генерация метаданных для страницы
 export async function generateMetadata({
     params,
 }: {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
     try {
-        const post = await getRegularPostBySlug(params.slug);
+        const { slug } = await params;
+        const post = await getRegularPostBySlug(slug);
 
         if (!post) {
             return {
@@ -44,7 +32,7 @@ export async function generateMetadata({
                 images: [{ url: post.coverImage }],
             },
         };
-    } catch (error) {
+    } catch {
         return {
             title: "Пост не найден",
             description: "Запрашиваемый пост не найден",
@@ -55,10 +43,11 @@ export async function generateMetadata({
 export default async function RegularPostPage({
     params,
 }: {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }) {
     try {
-        const post = await getRegularPostBySlug(params.slug);
+        const { slug } = await params;
+        const post = await getRegularPostBySlug(slug);
 
         if (!post) {
             notFound();
@@ -134,8 +123,8 @@ export default async function RegularPostPage({
                 </div>
             </article>
         );
-    } catch (error) {
-        console.error("Error fetching post:", error);
+    } catch {
+        console.error("Error fetching post");
         notFound();
     }
 }

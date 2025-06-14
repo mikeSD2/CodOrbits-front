@@ -210,7 +210,7 @@ export default async function CoursePage() {
                                     >
                                         <article className="relative border border-gray-200 rounded-[var(--border-radius)] overflow-hidden transition-shadow hover:shadow-lg bg-white">
                                             <div className="relative h-48 overflow-hidden flex justify-center items-center p-4">
-                                                <div className="flex justify-center items-center w-[100%] h-[100%] rounded-[var(--border-radius)] bg-gray-100 object-cover transform group-hover:scale-102 transition-transform duration-300 bg-[linear-gradient(100deg,#68B6FF_0.57%,#4698FC_22.44%,#2B7FFF_99.43%)]">
+                                                <div className="flex justify-center items-center w-[100%] h-[100%] rounded-[var(--border-radius)] bg-gray-100 object-cover transform group-hover:scale-102 transition-transform duration-300 bg-[linear-gradient(100deg,#68B6FF_0.57%,#4698FC_22.44%,#2B7FFF_99.43%)] relative">
                                                     <Image
                                                         src="/images/back_small_image1_for_slider_section.svg"
                                                         alt="Small Image 1"

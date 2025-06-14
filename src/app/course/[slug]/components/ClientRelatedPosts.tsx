@@ -17,7 +17,7 @@ export default function ClientRelatedPosts() {
 
     useEffect(() => {
         setSelectedPost(currentSlug);
-    }, [pathname]);
+    }, [pathname, currentSlug]);
 
     // If no related posts are available, show a message
     if (!relatedPosts || relatedPosts.length === 0) {

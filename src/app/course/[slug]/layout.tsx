@@ -33,9 +33,10 @@ async function getCoursePost(slug: string): Promise<CoursePost | null> {
 export async function generateMetadata({
     params,
 }: {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-    const post = await getCoursePost(params.slug);
+    const { slug } = await params;
+    const post = await getCoursePost(slug);
 
     if (!post) {
         return {
@@ -124,9 +125,10 @@ export default async function CourseLayout({
     params,
 }: {
     children: React.ReactNode;
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }) {
-    const post = await getCoursePost(params.slug);
+    const { slug } = await params;
+    const post = await getCoursePost(slug);
 
     if (!post) {
         notFound();
@@ -153,7 +155,7 @@ export default async function CourseLayout({
     }
 
     // Fetch adjacent posts data on the server
-    const adjacentPosts = await getAdjacentPosts(params.slug);
+    const adjacentPosts = await getAdjacentPosts(slug);
 
     // Prepare the data in the correct structure for the context
     const postData: PostDataContextType = {

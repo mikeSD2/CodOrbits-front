@@ -19,9 +19,10 @@ interface SearchResult {
 export async function generateMetadata({
     searchParams,
 }: {
-    searchParams: { q?: string };
+    searchParams: Promise<{ q?: string }>;
 }): Promise<Metadata> {
-    const query = searchParams.q || "";
+    const { q } = await searchParams;
+    const query = q || "";
     const title = query ? `Поиск: ${query}` : "Поиск по сайту";
     const description = query
         ? `Результаты поиска для "${query}" на сайте CodOrbits`
@@ -114,9 +115,10 @@ async function getSearchResults(query: string): Promise<SearchResult[]> {
 export default async function SearchPage({
     searchParams,
 }: {
-    searchParams: { q?: string };
+    searchParams: Promise<{ q?: string }>;
 }) {
-    const query = searchParams.q || "";
+    const { q } = await searchParams;
+    const query = q || "";
     const searchResults = await getSearchResults(query);
 
     return (

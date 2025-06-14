@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import parse, { Element } from "html-react-parser";
+import parse, { Element, Text } from "html-react-parser";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { decode } from "html-entities";
@@ -51,7 +51,7 @@ export default function PostContent({ content }: PostContentProps) {
             ) {
                 const language = domNode.attribs["data-language"] || "text";
                 const rawCode = decodeURIComponent(
-                    (domNode.children?.[0] as any)?.data || ""
+                    (domNode.children?.[0] as Text)?.data || ""
                 );
 
                 return (

@@ -48,7 +48,7 @@ const Footer = () => {
                     message: result.message,
                 });
             }
-        } catch (error) {
+        } catch {
             setStatus({
                 type: "error",
                 message: "Произошла ошибка при подписке",

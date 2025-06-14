@@ -1,4 +1,4 @@
-import { getAllPosts, getAllCategories } from "@/lib/api/wordpress";
+import { getAllPosts } from "@/lib/api/wordpress";
 import { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -29,7 +29,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             | "never";
         priority: number;
     }> = [];
-    let categoryEntries: Array<{
+    const categoryEntries: Array<{
         url: string;
         lastModified: Date;
         changeFrequency:

@@ -18,7 +18,6 @@ export default function ContactForm() {
         message: "",
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [isHoveringButton, setIsHoveringButton] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -61,7 +60,7 @@ export default function ContactForm() {
                     message: result.message,
                 });
             }
-        } catch (error) {
+        } catch {
             setStatus({
                 type: "error",
                 message: "Произошла ошибка при отправке сообщения",
@@ -170,12 +169,6 @@ export default function ContactForm() {
                                     type="submit"
                                     disabled={isSubmitting}
                                     className="w-full cursor-pointer group"
-                                    onMouseEnter={() =>
-                                        setIsHoveringButton(true)
-                                    }
-                                    onMouseLeave={() =>
-                                        setIsHoveringButton(false)
-                                    }
                                 >
                                     <div className="flex p-0 mt-1 border border-blue-500 border-[5px] relative rounded-l-4xl rounded-tr-xl rounded-br-xl mr-[3px]">
                                         <Image

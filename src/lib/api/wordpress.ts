@@ -1,6 +1,28 @@
 import { CoursePost } from "@/app/course/[slug]/types/post";
 
 /**
+ * Interface for WordPress Graph Item used in Yoast SEO
+ */
+interface WordPressGraphItem {
+    id: string;
+    type: string;
+    [key: string]: unknown;
+}
+
+/**
+ * Interface for search result post
+ */
+interface SearchResultPost {
+    slug: string;
+    title: string;
+    excerpt: string;
+    coverImage: string;
+    date: string;
+    technologyLabel: string;
+    postType: string;
+}
+
+/**
  * Interface for Yoast SEO metadata
  */
 export interface YoastSEO {
@@ -33,8 +55,49 @@ export interface YoastSEO {
     twitter_site?: string;
     schema?: {
         "@context": string;
-        "@graph": Array<any>;
+        "@graph": Array<WordPressGraphItem>;
     };
+}
+
+/**
+ * Interface for WordPress post from API
+ */
+interface WordPressPost {
+    slug: string;
+    title: { rendered: string };
+    content: { rendered: string };
+    excerpt?: { rendered: string };
+    featured_media_url?: string;
+    date: string;
+    author_name?: string;
+    author_avatar?: string;
+    categories_name?: string[];
+    category_description?: string;
+    lesson_category?: number[];
+    meta?: {
+        _lesson_sections?: unknown[];
+        _additional_materials?: unknown[];
+        technology_label?: string;
+    };
+    yoast_head_json?: YoastSEO;
+    [key: string]: unknown;
+}
+
+/**
+ * Interface for WordPress category from API
+ */
+interface WordPressCategory {
+    id: number;
+    name: string;
+    description: string;
+    count: number;
+    meta?: {
+        lesson_category_sort_order?: string;
+        lesson_category_image?: string;
+    };
+    lesson_category_sort_order?: string;
+    lesson_category_image?: string;
+    [key: string]: unknown;
 }
 
 const BASE_URL = "http://localhost/BitBrew/wp-json/wp/v2";
@@ -140,7 +203,7 @@ export async function getAllPosts(): Promise<
     }[]
 > {
     try {
-        let allPosts: any[] = [];
+        let allPosts: WordPressPost[] = [];
         let page = 1;
         let hasMorePages = true;
 
@@ -175,11 +238,12 @@ export async function getAllPosts(): Promise<
         }
 
         // Transform WordPress posts to match our expected format
-        return allPosts.map((post: any) => ({
+        return allPosts.map((post) => ({
             slug: post.slug,
             title: post.title.rendered || "",
-            excerpt: post.excerpt.rendered
-                ? stripHtmlTags(post.excerpt.rendered).substring(0, 150) + "..."
+            excerpt: post.excerpt?.rendered
+                ? stripHtmlTags(post.excerpt?.rendered).substring(0, 150) +
+                  "..."
                 : "",
             coverImage: post.featured_media_url || "/images/blog-cover.jpg",
             date: post.date || new Date().toISOString(),
@@ -207,18 +271,8 @@ export async function getAllCategories(): Promise<
     }[]
 > {
     try {
-        // Create an interface for the category type
-        interface Category {
-            id: number;
-            name: string;
-            description: string;
-            count: number;
-            sortOrder: number;
-            imageUrl: string;
-        }
-
         // Fetch all categories with pagination
-        let allCategories: any[] = [];
+        let allCategories: WordPressCategory[] = [];
         let page = 1;
         let hasMorePages = true;
 
@@ -255,47 +309,49 @@ export async function getAllCategories(): Promise<
         }
 
         // Map the categories with their sort order
-        const categoriesWithSortOrder: Category[] = allCategories.map(
-            (category: any) => {
-                // Get meta data if available
-                let sortOrder = 9999; // Default high value for items without order
-                let imageUrl = "/images/hugeicons_java.svg"; // Default image path
+        const categoriesWithSortOrder: {
+            id: number;
+            name: string;
+            description: string;
+            count: number;
+            sortOrder: number;
+            imageUrl: string;
+        }[] = allCategories.map((category: WordPressCategory) => {
+            // Get meta data if available
+            let sortOrder = 9999; // Default high value for items without order
+            let imageUrl = "/images/hugeicons_java.svg"; // Default image path
 
-                // Try to get the sort order from different possible locations in the API response
-                if (category.meta && category.meta.lesson_category_sort_order) {
-                    sortOrder = parseInt(
-                        category.meta.lesson_category_sort_order,
-                        10
-                    );
-                } else if (category.lesson_category_sort_order) {
-                    sortOrder = parseInt(
-                        category.lesson_category_sort_order,
-                        10
-                    );
-                }
-
-                // Try to get the image URL from meta data
-                if (category.meta && category.meta.lesson_category_image) {
-                    imageUrl = category.meta.lesson_category_image;
-                } else if (category.lesson_category_image) {
-                    imageUrl = category.lesson_category_image;
-                }
-
-                // If the value is NaN, use the default
-                if (isNaN(sortOrder)) {
-                    sortOrder = 9999;
-                }
-
-                return {
-                    id: category.id,
-                    name: category.name || "",
-                    description: category.description || "",
-                    count: category.count || 0,
-                    sortOrder,
-                    imageUrl,
-                };
+            // Try to get the sort order from different possible locations in the API response
+            if (category.meta && category.meta.lesson_category_sort_order) {
+                sortOrder = parseInt(
+                    category.meta.lesson_category_sort_order,
+                    10
+                );
+            } else if (category.lesson_category_sort_order) {
+                sortOrder = parseInt(category.lesson_category_sort_order, 10);
             }
-        );
+
+            // Try to get the image URL from meta data
+            if (category.meta && category.meta.lesson_category_image) {
+                imageUrl = category.meta.lesson_category_image;
+            } else if (category.lesson_category_image) {
+                imageUrl = category.lesson_category_image;
+            }
+
+            // If the value is NaN, use the default
+            if (isNaN(sortOrder)) {
+                sortOrder = 9999;
+            }
+
+            return {
+                id: category.id,
+                name: category.name || "",
+                description: category.description || "",
+                count: category.count || 0,
+                sortOrder,
+                imageUrl,
+            };
+        });
 
         // Sort by the sort order field (ascending)
         return categoriesWithSortOrder.sort(
@@ -329,7 +385,7 @@ export async function getPostsByCategory(
     try {
         // If limit is -1, fetch all posts with pagination
         if (limit === -1) {
-            let allPosts: any[] = [];
+            let allPosts: WordPressPost[] = [];
             let page = 1;
             let hasMorePages = true;
 
@@ -365,10 +421,10 @@ export async function getPostsByCategory(
             }
 
             // Transform WordPress posts to match our expected format
-            return allPosts.map((post: any) => ({
+            return allPosts.map((post: WordPressPost) => ({
                 slug: post.slug,
                 title: post.title.rendered || "",
-                excerpt: post.excerpt.rendered
+                excerpt: post.excerpt?.rendered
                     ? stripHtmlTags(post.excerpt.rendered).substring(0, 150) +
                       "..."
                     : "",
@@ -389,10 +445,10 @@ export async function getPostsByCategory(
 
             const posts = await response.json();
 
-            return posts.map((post: any) => ({
+            return posts.map((post: WordPressPost) => ({
                 slug: post.slug,
                 title: post.title.rendered || "",
-                excerpt: post.excerpt.rendered
+                excerpt: post.excerpt?.rendered
                     ? stripHtmlTags(post.excerpt.rendered).substring(0, 150) +
                       "..."
                     : "",
@@ -429,7 +485,7 @@ export async function getRelatedPostsByCategory(
 
         // If limit is -1, fetch all related posts with pagination
         if (limit === -1) {
-            let allPosts: any[] = [];
+            let allPosts: WordPressPost[] = [];
             let page = 1;
             let hasMorePages = true;
 
@@ -465,7 +521,7 @@ export async function getRelatedPostsByCategory(
             }
 
             // Transform WordPress posts to our simplified format for related posts
-            return allPosts.map((post: any) => ({
+            return allPosts.map((post: WordPressPost) => ({
                 slug: post.slug,
                 title: post.title.rendered || "",
             }));
@@ -483,7 +539,7 @@ export async function getRelatedPostsByCategory(
             const posts = await response.json();
 
             // Transform WordPress posts to our simplified format for related posts
-            return posts.map((post: any) => ({
+            return posts.map((post: WordPressPost) => ({
                 slug: post.slug,
                 title: post.title.rendered || "",
             }));
@@ -581,22 +637,27 @@ export async function searchPosts(
         )}&per_page=${limit}`;
         const lessonsResponse = await fetch(lessonsUrl);
 
-        let results: any[] = [];
+        let results: SearchResultPost[] = [];
 
         if (lessonsResponse.ok) {
             const lessonsData = await lessonsResponse.json();
-            const transformedLessons = lessonsData.map((post: any) => ({
-                slug: post.slug,
-                title: post.title.rendered || "",
-                excerpt: post.excerpt.rendered
-                    ? stripHtmlTags(post.excerpt.rendered).substring(0, 150) +
-                      "..."
-                    : "",
-                coverImage: post.featured_media_url || "/images/blog-cover.jpg",
-                date: post.date || new Date().toISOString(),
-                technologyLabel: post.meta?.technology_label || "Java",
-                postType: "java-lessons",
-            }));
+            const transformedLessons = lessonsData.map(
+                (post: WordPressPost) => ({
+                    slug: post.slug,
+                    title: post.title.rendered || "",
+                    excerpt: post.excerpt?.rendered
+                        ? stripHtmlTags(post.excerpt.rendered).substring(
+                              0,
+                              150
+                          ) + "..."
+                        : "",
+                    coverImage:
+                        post.featured_media_url || "/images/blog-cover.jpg",
+                    date: post.date || new Date().toISOString(),
+                    technologyLabel: post.meta?.technology_label || "Java",
+                    postType: "java-lessons",
+                })
+            );
 
             results = [...transformedLessons];
         }
@@ -609,10 +670,10 @@ export async function searchPosts(
 
         if (postsResponse.ok) {
             const postsData = await postsResponse.json();
-            const transformedPosts = postsData.map((post: any) => ({
+            const transformedPosts = postsData.map((post: WordPressPost) => ({
                 slug: post.slug,
                 title: post.title.rendered || "",
-                excerpt: post.excerpt.rendered
+                excerpt: post.excerpt?.rendered
                     ? stripHtmlTags(post.excerpt.rendered).substring(0, 150) +
                       "..."
                     : "",

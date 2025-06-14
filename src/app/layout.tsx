@@ -3,6 +3,8 @@ import Footer from "@/app/components/Footer";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "./styles/gutenberg-style.min.css";
+import "./styles/wp-custom.css";
 
 // Импортируйте Jura шрифт
 import { Jura } from "next/font/google";
@@ -44,10 +46,6 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <head>
-                <link rel="stylesheet" href="/css/gutenberg-style.min.css" />
-                <link rel="stylesheet" href="/css/wp-custom.css" />
-            </head>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} ${jura.variable} ${damion.variable} antialiased overflow-x-hidden`}
             >
