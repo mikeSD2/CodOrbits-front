@@ -1,0 +1,31 @@
+<div class="background-container">(background-container див это секция а ниже все для отображения картинки)
+  <div class="background-content">
+    <!-- Внутренний контент -->
+    <h1>Заголовок</h1>
+    <p>Описание</p>
+  </div>
+  <div class="background-image">
+    <img class="cover-image" src="java-roadmap.png" alt="example image" />
+  </div>
+</div>
+<style>
+.background-container {
+  position: relative; /* Для управления абсолютным позиционированием */
+  width: 100%; /* По желанию */
+}
+
+.background-image {
+  position: absolute; /* Позволяет растянуть элемент */
+  top: 0;
+  left: 0;
+  width: 100%; /* Растягиваем по ширине */
+  height: 100%; /* Растягиваем по высоте родителя */
+  z-index: -1; /* Отправляем на задний план */
+}
+
+.cover-image {
+  width: 100%; /* Растягиваем изображение по ширине */
+  height: 100%; /* Растягиваем изображение по высоте */
+  object-fit: cover; /* Аналог background-size: cover */
+}
+</style>
