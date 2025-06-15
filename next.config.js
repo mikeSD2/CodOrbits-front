@@ -8,7 +8,7 @@ const securityHeaders = [
       script-src 'self' 'unsafe-inline';
       style-src 'self' 'unsafe-inline';
       img-src 'self' data: https: http:;
-      connect-src 'self' https://yourwordpress.com;
+      connect-src 'self' http://51.21.195.168;
       font-src 'self' https:;
     `
             .replace(/\s{2,}/g, " ")
@@ -33,7 +33,7 @@ const nextConfig = {
     trailingSlash: true,
     // Environment variables available on the client
     env: {
-        SITE_URL: process.env.SITE_URL || "https://localhost:3000",
+        SITE_URL: process.env.SITE_URL || "https://cod-orbits-front.vercel.app",
         WORDPRESS_API_URL:
             process.env.WORDPRESS_API_URL ||
             "http://51.21.195.168/wp-json/wp/v2",
