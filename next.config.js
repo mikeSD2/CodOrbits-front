@@ -33,10 +33,11 @@ const nextConfig = {
     trailingSlash: true,
     // Environment variables available on the client
     env: {
-        SITE_URL: process.env.SITE_URL || "http://localhost:3000",
+        SITE_URL:
+            process.env.SITE_URL || "https://cod-orbits-front.vercel.app",
         WORDPRESS_API_URL:
             process.env.WORDPRESS_API_URL ||
-            "http://16.171.174.185/wp-json/wp/v2",
+            "http://16.171.139.124/wp-json/wp/v2",
     },
 };
 

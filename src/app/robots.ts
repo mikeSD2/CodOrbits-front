@@ -1,7 +1,8 @@
 import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-    const baseUrl = process.env.SITE_URL || "http://localhost:3000";
+    const baseUrl =
+        process.env.SITE_URL || "https://cod-orbits-front.vercel.app";
 
     return {
         rules: {

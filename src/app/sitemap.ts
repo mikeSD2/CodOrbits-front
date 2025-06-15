@@ -2,7 +2,7 @@ import { getAllPosts } from "@/lib/api/wordpress";
 import { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const baseUrl = process.env.SITE_URL || "http://localhost:3000";
+    const baseUrl = process.env.SITE_URL || "https://cod-orbits-front.vercel.app";
     let courseEntries: Array<{
         url: string;
         lastModified: Date;
