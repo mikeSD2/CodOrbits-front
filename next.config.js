@@ -5,11 +5,11 @@ const securityHeaders = [
         key: "Content-Security-Policy",
         value: `
         default-src 'none';
-        script-src 'self';
+        script-src 'self' 'unsafe-inline';
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
         img-src 'self' https: data:;
         font-src 'self' https://fonts.gstatic.com;
-        connect-src https://codorааааbits-api.online;
+        connect-src 'self' https://codorbits-api.online;
         frame-src 'none';
         object-src 'none';
       `
