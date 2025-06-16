@@ -100,7 +100,7 @@ interface WordPressCategory {
     [key: string]: unknown;
 }
 
-const BASE_URL = "http://ec2-56-228-54-16.eu-north-1.compute.amazonaws.com/wp-json/wp/v2";
+const BASE_URL = "https://codorbits-api.online/wp-json/wp/v2";
 
 /**
  * Fetches a post from WordPress API by slug
@@ -815,7 +815,7 @@ export async function sendContactForm(
         formData.append("_wpcf7_posted_data_hash", "");
 
         const response = await fetch(
-            `http://ec2-56-228-54-16.eu-north-1.compute.amazonaws.com/wp-json/contact-form-7/v1/contact-forms/${formId}/feedback`,
+            `https://codorbits-api.online/wp-json/contact-form-7/v1/contact-forms/${formId}/feedback`,
             {
                 method: "POST",
                 body: formData,
