@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function SliderSection() {
     const [currentImage, setCurrentImage] = useState("/images/exampleffff.gif");
@@ -52,6 +52,15 @@ export default function SliderSection() {
         },
     ];
 
+    // Preload all images for better performance
+    useEffect(() => {
+        items.forEach((item) => {
+            // Use the browser's HTMLImageElement instead of the Next.js Image
+            const img = document.createElement("img");
+            img.src = item.image;
+        });
+    }, []);
+
     return (
         <section className="mt-15 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-gradient-end)] 2xl:p-14 xl:p-10 p-4 sm:p-7 rounded-[var(--border-radius)] flex-col lg:flex-row flex items-start 2xl:gap-18 xl:gap-6 gap-3 relative">
             <div className="flex-1 flex flex-col items-start w-full order-2 lg:order-1">
@@ -92,6 +101,7 @@ export default function SliderSection() {
                     height={400}
                     quality={100}
                     className="w-full h-auto rounded-[var(--border-radius-small)]"
+                    priority
                 />
             </div>
             <Image

@@ -5,12 +5,12 @@ const securityHeaders = [
         key: "Content-Security-Policy",
         value: `
         default-src 'none';
-        script-src 'self' 'unsafe-inline';
+        script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
         img-src 'self' https: data:;
         font-src 'self' https://fonts.gstatic.com;
-        connect-src 'self' https://codorbits-api.online;
-        frame-src 'none';
+        connect-src 'self' https://codorbits-api.online https://www.google.com;
+        frame-src 'self' https://www.google.com;
         object-src 'none';
       `
             .replace(/\s{2,}/g, " ")

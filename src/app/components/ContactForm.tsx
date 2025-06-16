@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { sendContactForm } from "@/lib/api/wordpress";
+import { getRecaptchaToken, loadRecaptcha } from "@/lib/recaptcha";
 
 export default function ContactForm() {
     const [formData, setFormData] = useState({
@@ -18,6 +19,11 @@ export default function ContactForm() {
         message: "",
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    useEffect(() => {
+        // Предварительно загружаем reCAPTCHA скрипт при монтировании компонента
+        loadRecaptcha();
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -37,10 +43,14 @@ export default function ContactForm() {
         });
 
         try {
+            // Get reCAPTCHA token
+            const token = await getRecaptchaToken("contact_form");
+
             const result = await sendContactForm(
                 formData.email,
                 formData.subject,
-                formData.message
+                formData.message,
+                token
             );
 
             if (result.success) {
@@ -214,43 +224,6 @@ export default function ContactForm() {
                                         </div>
                                     </div>
                                 </button>
-                                {/* 
-                                <div className="flex gap-2 lg:gap-4 bg-blue-500 p-2 rounded-xl border border-white border-[5px] relative mt-4">
-                                    <Image
-                                        src="/images/small_image_for_contact_form.svg"
-                                        alt="Icon"
-                                        width={80}
-                                        height={80}
-                                        className="w-12 h-12 lg:w-16 lg:h-16 m-2"
-                                    />
-                                    <Image
-                                        src="/images/top_corner_rocket.svg"
-                                        alt="Right Image 2"
-                                        width={96}
-                                        height={96}
-                                        className="absolute -top-[11px] -right-[12px]"
-                                    />
-                                    <div className="flex-1 flex flex-col bg-[#8ABBF8] rounded-lg p-2 relative">
-                                        <p className="text-[15px] lg:text-[19px] text-white mx-2 mb-4">
-                                            Пожалуй самый обширный гайд по
-                                            Spring в интернете.
-                                        </p>
-                                        <Image
-                                            src="/images/white-long-dotted-line.svg"
-                                            alt="Right Image 2"
-                                            width={106}
-                                            height={106}
-                                            className="absolute bottom-2 w-full -ml-2"
-                                        />
-                                    </div>
-                                    <Image
-                                        src="/images/bottom_corner_rocket.svg"
-                                        alt="Right Image 2"
-                                        width={86}
-                                        height={86}
-                                        className="absolute -bottom-[11px] -left-[11px]"
-                                    /> 
-                                </div>*/}
                             </div>
                         </div>
 

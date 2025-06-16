@@ -786,12 +786,14 @@ export async function getRegularPostBySlug(slug: string): Promise<{
  * @param email - Email отправителя
  * @param subject - Тема сообщения
  * @param message - Текст сообщения
+ * @param recaptchaToken - Google reCAPTCHA token
  * @returns Promise с результатом отправки
  */
 export async function sendContactForm(
     email: string,
     subject: string,
-    message: string
+    message: string,
+    recaptchaToken: string
 ): Promise<{ success: boolean; message: string }> {
     try {
         // ID формы Contact Form 7 (нужно заменить на актуальный ID вашей формы в WordPress)
@@ -802,6 +804,9 @@ export async function sendContactForm(
         formData.append("your-email", email);
         formData.append("your-subject", subject);
         formData.append("your-message", message);
+        formData.append("_wpcf7_recaptcha_response", recaptchaToken);
+        formData.append("wpcf7_recaptcha_response", recaptchaToken); // опционально
+        formData.append("g-recaptcha-response", recaptchaToken);
         formData.append("_wpcf7", formId);
         formData.append("_wpcf7_version", "5.7.7");
 

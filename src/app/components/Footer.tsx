@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { subscribeToMailchimp } from "@/lib/mailchimp";
+import { getRecaptchaToken, loadRecaptcha } from "@/lib/recaptcha";
 
 const Footer = () => {
     const [email, setEmail] = useState("");
@@ -15,6 +16,11 @@ const Footer = () => {
         message: "",
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    // Предварительная загрузка reCAPTCHA при монтировании компонента
+    useEffect(() => {
+        loadRecaptcha();
+    }, []);
 
     const handleSubscribe = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -34,7 +40,10 @@ const Footer = () => {
                 message: "Подписываем вас...",
             });
 
-            const result = await subscribeToMailchimp(email);
+            // Получаем токен reCAPTCHA
+            const recaptchaToken = await getRecaptchaToken("footer_subscribe");
+
+            const result = await subscribeToMailchimp(email, recaptchaToken);
 
             if (result.success) {
                 setStatus({
