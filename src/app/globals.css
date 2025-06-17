@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+    color-scheme: only light;
     --background: #ffffff;
     --foreground: #171717;
     --font-sans: "Calibri", Arial, sans-serif;
@@ -33,15 +34,8 @@
     --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
-    }
-}
-
 body {
-    background: var(--background);
+    background: var(--background) !important;
     color: var(--foreground);
     font-family: var(--font-sans);
     font-size: var(--font-size-text-base);

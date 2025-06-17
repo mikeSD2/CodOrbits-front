@@ -130,6 +130,7 @@ export default function HeroSection() {
                     height={280}
                     quality={99}
                     className="rounded-[var(--border-radius)] w-full h-full object-cover object-top"
+                    priority
                 />
             </div>
             <style jsx global>{`

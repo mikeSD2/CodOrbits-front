@@ -35,8 +35,11 @@ const damion = Damion({
 });
 
 export const metadata: Metadata = {
-    title: "My Coding Website",
-    description: "Learn coding with our tutorials",
+    title: "Java Coding Website",
+    description: "Learn Java coding with our tutorials",
+    icons: {
+        icon: "/favicon.svg",
+    },
 };
 
 export default function RootLayout({

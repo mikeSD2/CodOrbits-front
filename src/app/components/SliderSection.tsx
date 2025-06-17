@@ -15,7 +15,7 @@ export default function SliderSection() {
     const items = [
         {
             title: "Практическое изучение Java",
-            image: "/images/exampleffff.gif",
+            image: "/images/exampleffff-ezgif.com-gif-to-webm-converter (1).webm",
             text: "Каждый урок содержит разбор примеров с пояснением, включая возможные ошибки и лучшие решения.",
             altText:
                 "Изучение Java на примерах и разбор того как работает java программа",
@@ -34,7 +34,7 @@ export default function SliderSection() {
         },
         {
             title: "Методичное изложение",
-            image: "/images/ezgif-17472f71a3db93.gif",
+            image: "/images/ezgif-17472f71a3db93-ezgif.com-gif-to-webm-converter.webm",
             text: "Пошаговые инструкции и скриншоты помогут установить всё нужное ПО и настроить среду разработки без лишних вопросов.",
             altText: "Методичное изложение курса",
         },
@@ -101,7 +101,6 @@ export default function SliderSection() {
                     height={400}
                     quality={100}
                     className="w-full h-auto rounded-[var(--border-radius-small)]"
-                    priority
                 />
             </div>
             <Image
