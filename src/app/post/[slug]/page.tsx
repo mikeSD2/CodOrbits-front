@@ -20,6 +20,9 @@ export async function generateMetadata({
             return {
                 title: "Пост не найден",
                 description: "Запрашиваемый пост не найден",
+                alternates: {
+                    canonical: `https://www.codorbits.com/post/${slug}`,
+                },
             };
         }
 
@@ -29,7 +32,11 @@ export async function generateMetadata({
             openGraph: {
                 title: post.title,
                 description: `${post.title} - статья на CodOrbits`,
+                url: `https://www.codorbits.com/post/${slug}`,
                 images: [{ url: post.coverImage }],
+            },
+            alternates: {
+                canonical: `https://www.codorbits.com/post/${slug}`,
             },
         };
     } catch {

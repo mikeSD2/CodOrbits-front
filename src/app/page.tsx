@@ -27,11 +27,14 @@ export async function generateMetadata(): Promise<Metadata> {
                 description:
                     yoastSEO.description ||
                     "Бесплатный курс по Java от CodOrbits для тех, кто хочет начать программировать или углубить знания. Разбираем все от основ до фреймворков на практических примарах.",
+                alternates: {
+                    canonical: "https://www.codorbits.com",
+                },
                 openGraph: {
                     title: yoastSEO.og_title || yoastSEO.title,
                     description:
                         yoastSEO.og_description || yoastSEO.description,
-                    url: yoastSEO.og_url,
+                    url: "https://www.codorbits.com",
                     siteName: yoastSEO.og_site_name,
                     images:
                         yoastSEO.og_image?.map((img) => ({
@@ -61,9 +64,6 @@ export async function generateMetadata(): Promise<Metadata> {
                         ? [yoastSEO.twitter_image]
                         : undefined,
                 },
-                alternates: {
-                    canonical: yoastSEO.canonical,
-                },
                 robots: {
                     index: yoastSEO.robots.index !== "noindex",
                     follow: yoastSEO.robots.follow !== "nofollow",
@@ -84,12 +84,18 @@ export async function generateMetadata(): Promise<Metadata> {
         return {
             title: "My Coding Website",
             description: "Learn coding with our tutorials",
+            alternates: {
+                canonical: "https://www.codorbits.com",
+            },
         };
     } catch (error) {
         console.error("Error fetching home page metadata:", error);
         return {
             title: "My Coding Website",
             description: "Learn coding with our tutorials",
+            alternates: {
+                canonical: "https://www.codorbits.com",
+            },
         };
     }
 }

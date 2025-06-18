@@ -20,6 +20,9 @@ export async function generateMetadata(): Promise<Metadata> {
                 description:
                     yoastSEO.description ||
                     "Полный курс по Java программированию для начинающих и продвинутых разработчиков",
+                alternates: {
+                    canonical: "https://www.codorbits.com/course",
+                },
                 openGraph: {
                     title:
                         yoastSEO.og_title ||
@@ -29,7 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
                         yoastSEO.og_description ||
                         yoastSEO.description ||
                         "Полный курс по Java программированию для начинающих и продвинутых разработчиков",
-                    url: yoastSEO.og_url,
+                    url: "https://www.codorbits.com/course",
                     siteName: yoastSEO.og_site_name,
                     images:
                         yoastSEO.og_image?.map((img) => ({
@@ -64,9 +67,6 @@ export async function generateMetadata(): Promise<Metadata> {
                         ? [yoastSEO.twitter_image]
                         : undefined,
                 },
-                alternates: {
-                    canonical: yoastSEO.canonical,
-                },
                 robots: {
                     index: yoastSEO.robots.index !== "noindex",
                     follow: yoastSEO.robots.follow !== "nofollow",
@@ -87,6 +87,9 @@ export async function generateMetadata(): Promise<Metadata> {
             title: "Уроки Java | CodOrbits",
             description:
                 "Полный курс по Java программированию для начинающих и продвинутых разработчиков",
+            alternates: {
+                canonical: "https://www.codorbits.com/course",
+            },
         };
     } catch (error) {
         console.error("Error fetching course page metadata:", error);

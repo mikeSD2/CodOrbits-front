@@ -9,7 +9,7 @@ import "./styles/wp-custom.css";
 // Импортируйте Jura шрифт
 import { Jura } from "next/font/google";
 
-// Импортируйте Damion шрифт
+// Импортируйте Damion шрифтs
 import { Damion } from "next/font/google";
 
 const jura = Jura({

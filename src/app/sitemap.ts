@@ -53,7 +53,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.8,
         }));
 
-        // For blog posts, we're using the same API but mapping to different URL
+        // For blog posts, we're using the same API but mapping to different URLL
         blogEntries = posts
             .filter((post) => post.technologyLabel === "Блог") // Assuming this is how blog posts are identified
             .map((post) => ({
@@ -66,7 +66,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         console.error("Error fetching posts for sitemap:", error);
     }
 
-    // Define static pages
+    // Define static pages ddd
     const staticPages = [
         {
             url: baseUrl,

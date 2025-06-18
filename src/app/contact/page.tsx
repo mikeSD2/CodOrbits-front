@@ -12,6 +12,9 @@ export async function generateMetadata(): Promise<Metadata> {
                 title: "Связаться с нами | CodOrbits",
                 description:
                     "Отправьте нам сообщение через форму обратной связи. Мы рады помочь вам с вопросами по Java-разработке.",
+                alternates: {
+                    canonical: "https://www.codorbits.com/contact",
+                },
             };
         }
 
@@ -32,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
                         yoastSEO.og_description ||
                         yoastSEO.description ||
                         "Отправьте нам сообщение через форму обратной связи. Мы рады помочь вам с вопросами по Java-разработке.",
-                    url: yoastSEO.og_url,
+                    url: "https://www.codorbits.com/contact",
                     siteName: yoastSEO.og_site_name,
                     images:
                         yoastSEO.og_image?.map((img) => ({
@@ -90,6 +93,9 @@ export async function generateMetadata(): Promise<Metadata> {
             title: "Связаться с нами | CodOrbits",
             description:
                 "Отправьте нам сообщение через форму обратной связи. Мы рады помочь вам с вопросами по Java-разработке.",
+            alternates: {
+                canonical: "https://www.codorbits.com/contact",
+            },
         };
     } catch (error) {
         console.error("Error fetching contact page metadata:", error);

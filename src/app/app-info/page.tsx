@@ -5,6 +5,9 @@ export const metadata = {
     title: "Приложение CodOrbits | Информация о мобильном приложении",
     description:
         "Информация о приложении CodOrbits, которое было удалено из Google Play в 2025 году. Скачайте оригинальный .apk файл.",
+    alternates: {
+        canonical: "https://www.codorbits.com/app-info",
+    },
 };
 
 export default function AppInfoPage() {

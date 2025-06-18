@@ -19,6 +19,9 @@ export async function generateMetadata(): Promise<Metadata> {
                 description:
                     yoastSEO.description ||
                     "Overview of all pages and resources on CodOrbits",
+                alternates: {
+                    canonical: "https://www.codorbits.com/sitemap",
+                },
                 openGraph: {
                     title:
                         yoastSEO.og_title ||
@@ -28,7 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
                         yoastSEO.og_description ||
                         yoastSEO.description ||
                         "Overview of all pages and resources on CodOrbits",
-                    url: yoastSEO.og_url,
+                    url: "https://www.codorbits.com/sitemap",
                     siteName: yoastSEO.og_site_name,
                     images:
                         yoastSEO.og_image?.map((img) => ({
@@ -63,9 +66,6 @@ export async function generateMetadata(): Promise<Metadata> {
                         ? [yoastSEO.twitter_image]
                         : undefined,
                 },
-                alternates: {
-                    canonical: yoastSEO.canonical,
-                },
                 robots: {
                     index: yoastSEO.robots.index !== "noindex",
                     follow: yoastSEO.robots.follow !== "nofollow",
@@ -85,6 +85,9 @@ export async function generateMetadata(): Promise<Metadata> {
         return {
             title: "Sitemap | CodOrbits",
             description: "Overview of all pages and resources on CodOrbits",
+            alternates: {
+                canonical: "https://www.codorbits.com/sitemap",
+            },
         };
     } catch (error) {
         console.error("Error fetching sitemap metadata:", error);

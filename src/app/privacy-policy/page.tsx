@@ -12,6 +12,9 @@ export async function generateMetadata(): Promise<Metadata> {
             return {
                 title: "Privacy Policy | CodOrbits",
                 description: "Our privacy policy and data handling practices",
+                alternates: {
+                    canonical: "https://www.codorbits.com/privacy-policy",
+                },
             };
         }
 
@@ -23,6 +26,9 @@ export async function generateMetadata(): Promise<Metadata> {
                 description:
                     yoastSEO.description ||
                     "Our privacy policy and data handling practices",
+                alternates: {
+                    canonical: "https://www.codorbits.com/privacy-policy",
+                },
                 openGraph: {
                     title:
                         yoastSEO.og_title ||
@@ -32,7 +38,7 @@ export async function generateMetadata(): Promise<Metadata> {
                         yoastSEO.og_description ||
                         yoastSEO.description ||
                         "Our privacy policy and data handling practices",
-                    url: yoastSEO.og_url,
+                    url: "https://www.codorbits.com/privacy-policy",
                     siteName: yoastSEO.og_site_name,
                     images:
                         yoastSEO.og_image?.map((img) => ({
@@ -67,9 +73,6 @@ export async function generateMetadata(): Promise<Metadata> {
                         ? [yoastSEO.twitter_image]
                         : undefined,
                 },
-                alternates: {
-                    canonical: yoastSEO.canonical,
-                },
                 robots: {
                     index: yoastSEO.robots.index !== "noindex",
                     follow: yoastSEO.robots.follow !== "nofollow",
@@ -89,6 +92,9 @@ export async function generateMetadata(): Promise<Metadata> {
         return {
             title: "Privacy Policy | CodOrbits",
             description: "Our privacy policy and data handling practices",
+            alternates: {
+                canonical: "https://www.codorbits.com/privacy-policy",
+            },
         };
     } catch (error) {
         console.error("Error fetching privacy policy metadata:", error);
