@@ -11,7 +11,7 @@ const isVideo = (filename: string): boolean => {
 export default function SliderSection() {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [currentImage, setCurrentImage] = useState(
-        "/videos/exampleffff-ezgif.com-gif-to-mp4-converter.mp4"
+        "/videos/exampleffff.webm"
     );
     const [currentText, setCurrentText] = useState(
         "Каждый урок содержит разбор примеров с пояснением, включая возможные ошибки и лучшие решения."
@@ -25,7 +25,7 @@ export default function SliderSection() {
     const items = [
         {
             title: "Практическое изучение Java",
-            image: "/videos/exampleffff-ezgif.com-gif-to-mp4-converter.mp4",
+            image: "/videos/exampleffff.webm",
             text: "Каждый урок содержит разбор примеров с пояснением, включая возможные ошибки и лучшие решения.",
             altText:
                 "Изучение Java на примерах и разбор того как работает java программа",
@@ -44,7 +44,7 @@ export default function SliderSection() {
         },
         {
             title: "Методичное изложение",
-            image: "/videos/exampleffff-ezgif.com-gif-to-mp4-converter.mp4",
+            image: "/videos/ezgif-17472f71a3db93.webm",
             text: "Пошаговые инструкции и скриншоты помогут установить всё нужное ПО и настроить среду разработки без лишних вопросов.",
             altText: "Методичное изложение курса",
         },
@@ -164,7 +164,7 @@ export default function SliderSection() {
                             }`}
                             style={{ maxHeight: "500px" }}
                         >
-                            <source src={currentImage} type="video/mp4" />
+                            <source src={currentImage} type="video/webm" />
                             <p>Ваш браузер не поддерживает HTML5 видео</p>
                         </video>
                         {!videoLoaded && !videoError && (
