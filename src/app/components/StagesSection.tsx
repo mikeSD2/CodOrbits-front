@@ -48,7 +48,7 @@ export default function StagesSection() {
                                 по программированию?
                             </h2>
                         </div>
-                        <p className="mb-6 font-thin text-(length:--font-size-text-base) lg:text-[18px] 2xl:text-(length:--font-size-text-base)">
+                        <p className="mb-6 font-thin sm:text-(length:--font-size-text-base) lg:text-[18px] 2xl:text-(length:--font-size-text-base)">
                             Наш бесплатный курс по программированию превратит
                             вас в уверенного Java разработчика. Освойте Java
                             программирование с нуля, получите востребованные
@@ -118,7 +118,7 @@ export default function StagesSection() {
                             <h3 className="font-bold">
                                 Учись сразу, без регистрации
                             </h3>
-                            <p className="font-thin mb-8 text-(length:--font-size-text-base) lg:text-[18px] 2xl:text-(length:--font-size-text-base)">
+                            <p className="font-thin mb-8 sm:text-(length:--font-size-text-base) lg:text-[18px] 2xl:text-(length:--font-size-text-base)">
                                 Все уроки открыты для всех. Просто заходишь и
                                 начинаешь. Никаких аккаунтов, паролей и email.
                                 Начни обучение программированию сразу — без
@@ -147,7 +147,7 @@ export default function StagesSection() {
                             <h3 className="font-bold">
                                 Удобный и понятный формат
                             </h3>
-                            <p className="font-thin text-(length:--font-size-text-base) lg:text-[18px] 2xl:text-(length:--font-size-text-base)">
+                            <p className="font-thin sm:text-(length:--font-size-text-base) lg:text-[18px] 2xl:text-(length:--font-size-text-base)">
                                 Наш курс Java выстроен для комфортного обучения.
                                 Подробные объяснения, примеры, скриншоты и
                                 пошаговая структура помогут легко освоить даже
@@ -186,7 +186,7 @@ export default function StagesSection() {
                             <h3 className="font-bold">
                                 Навыки для сильного портфолио
                             </h3>
-                            <p className="font-thin mb-8 text-(length:--font-size-text-base) lg:text-[18px] 2xl:text-(length:--font-size-text-base)">
+                            <p className="font-thin mb-8 sm:text-(length:--font-size-text-base) lg:text-[18px] 2xl:text-(length:--font-size-text-base)">
                                 Ты разберешься в десятках практических задач и
                                 проектов. В итоге — реальные навыки для
                                 составления заметного портфолио разработчика,
@@ -215,7 +215,7 @@ export default function StagesSection() {
                             <h3 className="font-bold">
                                 Готовое резюме и уверенность
                             </h3>
-                            <p className="font-thin text-(length:--font-size-text-base) lg:text-[18px] 2xl:text-(length:--font-size-text-base)">
+                            <p className="font-thin sm:text-(length:--font-size-text-base) lg:text-[18px] 2xl:text-(length:--font-size-text-base)">
                                 После курса у тебя будет резюме, охватывающее
                                 все ключевые технологии. Глубокое понимание тем
                                 даст уверенность и полную готовность отвечать на

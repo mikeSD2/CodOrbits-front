@@ -67,7 +67,7 @@ const Footer = () => {
         }
     };
     return (
-        <footer className="py-16">
+        <footer className="py-10">
             <Image
                 src="/images/rocket-delimeter.svg"
                 alt="Rocket"
@@ -98,7 +98,7 @@ const Footer = () => {
                     <div className="flex flex-col md:flex-row justify-between items-center mt-4 gap-3">
                         <div className="flex space-x-2">
                             <a
-                                href="https://www.facebook.com/sharer/sharer.php?u=https://codorbits.com"
+                                href="https://www.facebook.com/sharer/sharer.php?u=https://www.codorbits.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="relative cursor-pointer hover:opacity-75"
@@ -121,7 +121,7 @@ const Footer = () => {
                             </a>
 
                             <a
-                                href="https://twitter.com/intent/tweet?url=https://codorbits.com&text=Изучите программирование на Java с CodOrbits"
+                                href="https://twitter.com/intent/tweet?url=https://www.codorbits.com&text=Изучите программирование на Java с CodOrbits"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="relative cursor-pointer hover:opacity-75"
@@ -144,7 +144,7 @@ const Footer = () => {
                             </a>
 
                             <a
-                                href="https://www.linkedin.com/sharing/share-offsite/?url=https://codorbits.com"
+                                href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.codorbits.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="relative cursor-pointer hover:opacity-75"

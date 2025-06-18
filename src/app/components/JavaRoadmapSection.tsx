@@ -10,7 +10,7 @@ export default function JavaRoadmapSection() {
     return (
         <section className="mt-8 relative w-[100vw] max-w-[100vw] ml-[calc(-50vw+50%)]">
             <div className="absolute bg-gradient-to-b from-[white] via-[#F6FCFF] to-[white] w-full h-[calc(100%+590px)] -mt-55 z-[-1]"></div>
-            <div className="relative z-10 p-8 bg-opacity-0 rounded-[var(--border-radius)] max-w-[var(--container-width)] mx-auto">
+            <div className="relative z-10 p-8 pb-0 bg-opacity-0 rounded-[var(--border-radius)] max-w-[var(--container-width)] mx-auto">
                 <h2 className="text-(length:--font-size-headings-large-sm) lg:text-(length:--font-size-headings-large) font-[family-name:var(--font-helvetica-rounded)] sm:w-[60%] mx-auto font-bold text-center mb-4">
                     <span className="text-transparent bg-clip-text bg-gradient-to-b from-blue-600 to-blue-500">
                         Покрытие тем

@@ -8,6 +8,7 @@ const securityHeaders = [
         script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
         img-src 'self' https: data:;
+        media-src 'self' blob:;
         font-src 'self' https://fonts.gstatic.com;
         connect-src 'self' https://codorbits-api.online https://www.google.com;
         frame-src 'self' https://www.google.com;
@@ -35,7 +36,7 @@ const nextConfig = {
     trailingSlash: true,
     // Environment variables available on the client
     env: {
-        SITE_URL: process.env.SITE_URL || "https://codorbits.com",
+        SITE_URL: process.env.SITE_URL || "https://www.codorbits.com",
         WORDPRESS_API_URL:
             process.env.WORDPRESS_API_URL ||
             "https://codorbits-api.online/wp-json/wp/v2",

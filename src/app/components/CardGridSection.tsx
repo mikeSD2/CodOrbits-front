@@ -55,7 +55,7 @@ const cards: Card[] = [
 export default function CardGridSection() {
     const [isHovering2, setIsHovering2] = useState(false);
     return (
-        <section className="py-12">
+        <section className="py-12 pb-0">
             <div className="flex flex-col sm:flex-row justify-between mb-8 gap-4">
                 <h2 className="text-(length:--font-size-headings-large-sm) sm:text-(length:--font-size-headings-large) sm:max-w-[310px] font-[family-name:var(--font-helvetica-rounded)] font-bold">
                     Начни учиться{" "}

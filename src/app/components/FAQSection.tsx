@@ -59,7 +59,9 @@ export default function FAQSection({ items }: FAQSectionProps) {
                         </div>
                         <div
                             className={`relative bg-white overflow-hidden transition-all duration-300 border-[1px] border-[#C8C8C8] rounded-xl -mt-5 pt-4 ${
-                                expanded === index ? "max-h-[500px]" : "max-h-0"
+                                expanded === index
+                                    ? "max-h-[1000px]"
+                                    : "max-h-0"
                             }`}
                         >
                             <p className="p-4 whitespace-pre-wrap">

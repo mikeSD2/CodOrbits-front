@@ -19,10 +19,10 @@ export default function Header() {
                             height={35}
                             className="w-[22px] h-[22px] lg:w-[26px] lg:h-[26px]"
                         />
-                        <h1 className="ml-2 text-[20px] lg:text-[26px] font-bold font-[family-name:var(--font-helvetica-rounded)] tracking-[0.04em]">
+                        <span className="ml-2 text-[20px] lg:text-[26px] font-bold font-[family-name:var(--font-helvetica-rounded)] tracking-[0.04em]">
                             CodOrbits
                             <span className="hidden lg:inline">.com</span>
-                        </h1>
+                        </span>
                     </div>
                 </Link>
                 <nav className="hidden md:flex space-x-[34px] lg:space-x-[54px] text-[16px] lg:text-[20px]">

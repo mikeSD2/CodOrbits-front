@@ -44,7 +44,7 @@ export default function SliderSection() {
         },
         {
             title: "Методичное изложение",
-            image: "/videos/ezgif-17472f71a3db93.webm",
+            image: "/videos/metodical1.webm",
             text: "Пошаговые инструкции и скриншоты помогут установить всё нужное ПО и настроить среду разработки без лишних вопросов.",
             altText: "Методичное изложение курса",
         },
@@ -80,8 +80,19 @@ export default function SliderSection() {
                 }
             };
 
-            // Add event listener for when video is loaded
+            // Проверяем если видео уже готово
+            if (videoRef.current.readyState >= 3) {
+                setVideoLoaded(true);
+                playVideo();
+            }
+
+            // Add event listeners for when video is loaded
             const onLoadedMetadata = () => {
+                setVideoLoaded(true);
+                playVideo();
+            };
+
+            const onCanPlay = () => {
                 setVideoLoaded(true);
                 playVideo();
             };
@@ -95,6 +106,7 @@ export default function SliderSection() {
                 "loadedmetadata",
                 onLoadedMetadata
             );
+            videoRef.current.addEventListener("canplay", onCanPlay);
             videoRef.current.addEventListener("error", onError);
 
             return () => {
@@ -102,6 +114,7 @@ export default function SliderSection() {
                     "loadedmetadata",
                     onLoadedMetadata
                 );
+                videoRef.current?.removeEventListener("canplay", onCanPlay);
                 videoRef.current?.removeEventListener("error", onError);
             };
         }
@@ -118,7 +131,7 @@ export default function SliderSection() {
                         }`}
                     >
                         <button
-                            className={`text-[16px] sm:text-[20px] text-left font-bold font-[family-name:var(--font-helvetica-rounded)] ${
+                            className={`text-[18px] sm:text-[20px] text-left font-bold font-[family-name:var(--font-helvetica-rounded)] ${
                                 currentImage === item.image
                                     ? "text-white"
                                     : "text-[#CDE2FC]"
@@ -143,7 +156,7 @@ export default function SliderSection() {
                 {isVideo(currentImage) ? (
                     <div
                         className="w-full relative"
-                        style={{ minHeight: "200px" }}
+                        style={{ minHeight: "150px" }}
                     >
                         {videoError && (
                             <div className="absolute inset-0 flex items-center justify-center bg-black text-white">
@@ -157,7 +170,7 @@ export default function SliderSection() {
                             muted
                             loop
                             playsInline
-                            controls
+                            controls={false}
                             preload="auto"
                             className={`w-full h-auto rounded-[var(--border-radius-small)] ${
                                 videoLoaded ? "opacity-100" : "opacity-0"
