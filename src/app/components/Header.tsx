@@ -29,7 +29,7 @@ export default function Header() {
                     <Link href="/">Главная</Link>
                     <Link href="/#FeaturesSection">О нас</Link>
                     <Link href="/course">Курс</Link>
-                    <Link href="/contact">Контакты</Link>
+                    <Link href="/contacts">Контакты</Link>
                 </nav>
                 <div className="flex items-center space-x-[-5px]">
                     <div className="flex justify-start items-center relative">
@@ -104,9 +104,9 @@ export default function Header() {
                                 height={35}
                                 className="w-[20px] h-[20px] lg:w-[26px] lg:h-[26px]"
                             />
-                            <h1 className="ml-2 text-[19px] lg:text-[28px] font-bold font-[family-name:var(--font-helvetica-rounded)] tracking-[0.04em]">
+                            <span className="ml-2 text-[19px] lg:text-[28px] font-bold font-[family-name:var(--font-helvetica-rounded)] tracking-[0.04em]">
                                 CodOrbits.com
-                            </h1>
+                            </span>
                         </div>
                     </Link>
                     <button
@@ -145,7 +145,7 @@ export default function Header() {
                         Курс
                     </Link>
                     <Link
-                        href="/contact"
+                        href="/contacts"
                         className="block"
                         onClick={() => setIsMobileMenuOpen(false)}
                     >

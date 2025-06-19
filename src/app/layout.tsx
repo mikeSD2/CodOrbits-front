@@ -11,6 +11,7 @@ import { Jura } from "next/font/google";
 
 // Импортируйте Damion шрифтs
 import { Damion } from "next/font/google";
+import Script from "next/script";
 
 const jura = Jura({
     subsets: ["latin"],
@@ -40,6 +41,9 @@ export const metadata: Metadata = {
     icons: {
         icon: "/favicon.svg",
     },
+    other: {
+        "yandex-verification": "112fa41e5b9c2a04",
+    },
 };
 
 export default function RootLayout({
@@ -49,6 +53,29 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="ru" className="overflow-x-hidden">
+            <head>
+                <script
+                    src="https://analytics.ahrefs.com/analytics.js"
+                    data-key="a7BBaQB6x2Y0kiKkxwad6A"
+                    async
+                ></script>
+                <Script
+                    id="google-analytics"
+                    strategy="afterInteractive"
+                    src="https://www.googletagmanager.com/gtag/js?id=G-YT5DG6984J"
+                />
+                <Script
+                    id="google-analytics-script"
+                    strategy="afterInteractive"
+                >
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-YT5DG6984J');  
+                `}
+                </Script>
+            </head>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} ${jura.variable} ${damion.variable} antialiased overflow-x-hidden`}
             >

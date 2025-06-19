@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
                     yoastSEO.description ||
                     "Полный курс по Java программированию для начинающих и продвинутых разработчиков",
                 alternates: {
-                    canonical: "https://www.codorbits.com/course",
+                    canonical: "https://www.codorbits.com/course/",
                 },
                 openGraph: {
                     title:
@@ -32,7 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
                         yoastSEO.og_description ||
                         yoastSEO.description ||
                         "Полный курс по Java программированию для начинающих и продвинутых разработчиков",
-                    url: "https://www.codorbits.com/course",
+                    url: "https://www.codorbits.com/course/",
                     siteName: yoastSEO.og_site_name,
                     images:
                         yoastSEO.og_image?.map((img) => ({
@@ -88,7 +88,7 @@ export async function generateMetadata(): Promise<Metadata> {
             description:
                 "Полный курс по Java программированию для начинающих и продвинутых разработчиков",
             alternates: {
-                canonical: "https://www.codorbits.com/course",
+                canonical: "https://www.codorbits.com/course/",
             },
         };
     } catch (error) {

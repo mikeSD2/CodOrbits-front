@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
                     yoastSEO.description ||
                     "Overview of all pages and resources on CodOrbits",
                 alternates: {
-                    canonical: "https://www.codorbits.com/sitemap",
+                    canonical: "https://www.codorbits.com/sitemap-html/",
                 },
                 openGraph: {
                     title:
@@ -31,7 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
                         yoastSEO.og_description ||
                         yoastSEO.description ||
                         "Overview of all pages and resources on CodOrbits",
-                    url: "https://www.codorbits.com/sitemap",
+                    url: "https://www.codorbits.com/sitemap-html/",
                     siteName: yoastSEO.og_site_name,
                     images:
                         yoastSEO.og_image?.map((img) => ({
@@ -86,7 +86,7 @@ export async function generateMetadata(): Promise<Metadata> {
             title: "Sitemap | CodOrbits",
             description: "Overview of all pages and resources on CodOrbits",
             alternates: {
-                canonical: "https://www.codorbits.com/sitemap",
+                canonical: "https://www.codorbits.com/sitemap-html/",
             },
         };
     } catch (error) {
@@ -116,7 +116,8 @@ export default async function SitemapPage() {
         links: [
             { title: "Главная", url: "/" },
             { title: "Политика конфиденциальности", url: "/privacy-policy" },
-            { title: "Карта сайта", url: "/sitemap" },
+            { title: "Карта сайта", url: "/sitemap-html" },
+            { title: "Контакты", url: "/contacts" },
         ],
     };
 

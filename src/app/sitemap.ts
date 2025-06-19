@@ -47,7 +47,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         // Get all course posts (java lessons)
         const posts = await getAllPosts();
         courseEntries = posts.map((post) => ({
-            url: `${baseUrl}/course/${post.slug}`,
+            url: `${baseUrl}/course/${post.slug}/`,
             lastModified: new Date(post.date),
             changeFrequency: "weekly" as const,
             priority: 0.8,
@@ -57,7 +57,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         blogEntries = posts
             .filter((post) => post.technologyLabel === "Блог") // Assuming this is how blog posts are identified
             .map((post) => ({
-                url: `${baseUrl}/post/${post.slug}`,
+                url: `${baseUrl}/post/${post.slug}/`,
                 lastModified: new Date(post.date),
                 changeFrequency: "weekly" as const,
                 priority: 0.7,
@@ -69,31 +69,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Define static pages ddd
     const staticPages = [
         {
-            url: baseUrl,
+            url: `${baseUrl}/`,
             lastModified: new Date(),
             changeFrequency: "daily" as const,
             priority: 1.0,
         },
         {
-            url: `${baseUrl}/course`,
+            url: `${baseUrl}/course/`,
             lastModified: new Date(),
             changeFrequency: "daily" as const,
             priority: 0.9,
         },
         {
-            url: `${baseUrl}/contacts`,
+            url: `${baseUrl}/contacts/`,
             lastModified: new Date(),
             changeFrequency: "monthly" as const,
             priority: 0.5,
         },
         {
-            url: `${baseUrl}/privacy-policy`,
+            url: `${baseUrl}/privacy-policy/`,
             lastModified: new Date(),
             changeFrequency: "yearly" as const,
             priority: 0.3,
         },
         {
-            url: `${baseUrl}/sitemap-html`,
+            url: `${baseUrl}/sitemap-html/`,
             lastModified: new Date(),
             changeFrequency: "yearly" as const,
             priority: 0.3,

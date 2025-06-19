@@ -224,7 +224,7 @@ const Footer = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        href="/#ContactForm"
+                                        href="/contacts"
                                         className="text-[16px] font-light break-words inline-block"
                                     >
                                         Контакты
@@ -282,7 +282,7 @@ const Footer = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        href="/course/sql-basics"
+                                        href="/course/sql-db-mysql"
                                         className="text-[16px] font-light break-words inline-block"
                                     >
                                         Основы SQL
@@ -306,10 +306,10 @@ const Footer = () => {
                                 <ul className="space-y-2 flex md:block flex-col items-center w-full">
                                     <li className="flex flex-col items-center md:items-start">
                                         <a
-                                            href="mailto:CodOrbits@gmail.com"
+                                            href="mailto:info@codorbits.com"
                                             className="text-[16px] font-light break-words inline-block hover:underline"
                                         >
-                                            Email: CodOrbits@gmail.com
+                                            Email: info@codorbits.com
                                         </a>
                                         <a
                                             href="https://t.me/CodOrbits"

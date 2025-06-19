@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
                 description:
                     "Отправьте нам сообщение через форму обратной связи. Мы рады помочь вам с вопросами по Java-разработке.",
                 alternates: {
-                    canonical: "https://www.codorbits.com/contact",
+                    canonical: "https://www.codorbits.com/contacts/",
                 },
             };
         }
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
                         yoastSEO.og_description ||
                         yoastSEO.description ||
                         "Отправьте нам сообщение через форму обратной связи. Мы рады помочь вам с вопросами по Java-разработке.",
-                    url: "https://www.codorbits.com/contact",
+                    url: "https://www.codorbits.com/contacts/",
                     siteName: yoastSEO.og_site_name,
                     images:
                         yoastSEO.og_image?.map((img) => ({
@@ -94,7 +94,7 @@ export async function generateMetadata(): Promise<Metadata> {
             description:
                 "Отправьте нам сообщение через форму обратной связи. Мы рады помочь вам с вопросами по Java-разработке.",
             alternates: {
-                canonical: "https://www.codorbits.com/contact",
+                canonical: "https://www.codorbits.com/contacts/",
             },
         };
     } catch (error) {

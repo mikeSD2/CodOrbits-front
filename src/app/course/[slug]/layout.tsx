@@ -52,7 +52,7 @@ export async function generateMetadata({
             title: yoastSEO.title || `Course - ${post.title}`,
             description: yoastSEO.description || `Learn about ${post.title}`,
             alternates: {
-                canonical: `https://www.codorbits.com/course/${post.slug}`,
+                canonical: `https://www.codorbits.com/course/${post.slug}/`,
             },
             openGraph: {
                 title: yoastSEO.og_title || yoastSEO.title || post.title,
@@ -60,7 +60,7 @@ export async function generateMetadata({
                     yoastSEO.og_description ||
                     yoastSEO.description ||
                     `Learn about ${post.title}`,
-                url: `https://www.codorbits.com/course/${post.slug}`,
+                url: `https://www.codorbits.com/course/${post.slug}/`,
                 siteName: yoastSEO.og_site_name,
                 images: yoastSEO.og_image?.map((img) => ({
                     url: img.url,
@@ -114,12 +114,12 @@ export async function generateMetadata({
         openGraph: {
             title: post.title,
             description: `Learn about ${post.title}`,
-            url: `https://www.codorbits.com/course/${post.slug}`,
+            url: `https://www.codorbits.com/course/${post.slug}/`,
             images: [{ url: post.coverImage }],
             type: "article",
         },
         alternates: {
-            canonical: `https://www.codorbits.com/course/${post.slug}`,
+            canonical: `https://www.codorbits.com/course/${post.slug}/`,
         },
     };
 }

@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
                 title: "Privacy Policy | CodOrbits",
                 description: "Our privacy policy and data handling practices",
                 alternates: {
-                    canonical: "https://www.codorbits.com/privacy-policy",
+                    canonical: "https://www.codorbits.com/privacy-policy/",
                 },
             };
         }
@@ -27,7 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
                     yoastSEO.description ||
                     "Our privacy policy and data handling practices",
                 alternates: {
-                    canonical: "https://www.codorbits.com/privacy-policy",
+                    canonical: "https://www.codorbits.com/privacy-policy/",
                 },
                 openGraph: {
                     title:
@@ -38,7 +38,7 @@ export async function generateMetadata(): Promise<Metadata> {
                         yoastSEO.og_description ||
                         yoastSEO.description ||
                         "Our privacy policy and data handling practices",
-                    url: "https://www.codorbits.com/privacy-policy",
+                    url: "https://www.codorbits.com/privacy-policy/",
                     siteName: yoastSEO.og_site_name,
                     images:
                         yoastSEO.og_image?.map((img) => ({
@@ -93,7 +93,7 @@ export async function generateMetadata(): Promise<Metadata> {
             title: "Privacy Policy | CodOrbits",
             description: "Our privacy policy and data handling practices",
             alternates: {
-                canonical: "https://www.codorbits.com/privacy-policy",
+                canonical: "https://www.codorbits.com/privacy-policy/",
             },
         };
     } catch (error) {
