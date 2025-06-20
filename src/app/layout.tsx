@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "Java Coding Website",
     description: "Learn Java coding with our tutorials",
     icons: {
-        icon: "/favicon.svg",
+        icon: "/images/favicon.svg",
     },
     other: {
         "yandex-verification": "112fa41e5b9c2a04",
@@ -52,8 +52,15 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="ru" className="overflow-x-hidden">
+        <html lang="ru">
             <head>
+                <link
+                    rel="shortcut icon"
+                    href="/favicon.png"
+                    type="image/png"
+                />
+                <link rel="apple-touch-icon" href="/favicon.png" />
+
                 <script
                     src="https://analytics.ahrefs.com/analytics.js"
                     data-key="a7BBaQB6x2Y0kiKkxwad6A"
@@ -72,7 +79,7 @@ export default function RootLayout({
                         window.dataLayer = window.dataLayer || [];
                         function gtag(){dataLayer.push(arguments);}
                         gtag('js', new Date());
-                        gtag('config', 'G-YT5DG6984J');  
+                        gtag('config', 'G-YT5DG6984J');
                 `}
                 </Script>
             </head>

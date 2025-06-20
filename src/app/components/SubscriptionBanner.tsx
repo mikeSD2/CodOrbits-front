@@ -68,8 +68,8 @@ const SubscriptionBanner = () => {
     };
 
     return (
-        <section className="py-15 md:py-20">
-            <div className="w-full flex justify-between overflow-visible bg-[linear-gradient(91deg,#1F7CEF_0.71%,#4093FA_103.25%)] rounded-[var(--border-radius)] relative ">
+        <section className="pb-15 md:pb-20 w-[100vw] max-w-[100vw] ml-[calc(-50vw+50%)] overflow-x-hidden overflow-y-visible px-[7px] pt-[350px] mt-[-400px]">
+            <div className="w-[92%] sm:w-[88%] max-w-[var(--container-width)] mx-auto flex justify-between overflow-visible bg-[linear-gradient(91deg,#1F7CEF_0.71%,#4093FA_103.25%)] rounded-[var(--border-radius)] relative ">
                 <Image
                     src="/images/rocket_subscr_line.svg"
                     alt="Right Image 2"
