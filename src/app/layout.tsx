@@ -5,6 +5,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "./styles/gutenberg-style.min.css";
 import "./styles/wp-custom.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 // Импортируйте Jura шрифт
 import { Jura } from "next/font/google";
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     title: "Java Coding Website",
     description: "Learn Java coding with our tutorials",
     icons: {
-        icon: "/favicon.svg",
+        icon: "/images/favicon.svg",
     },
     other: {
         "yandex-verification": "112fa41e5b9c2a04",
@@ -52,29 +53,20 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="ru" className="overflow-x-hidden">
+        <html lang="ru">
             <head>
+                <link
+                    rel="shortcut icon"
+                    href="/favicon.png"
+                    type="image/png"
+                />
+                <link rel="apple-touch-icon" href="/favicon.png" />
+
                 <script
                     src="https://analytics.ahrefs.com/analytics.js"
                     data-key="a7BBaQB6x2Y0kiKkxwad6A"
                     async
                 ></script>
-                <Script
-                    id="google-analytics"
-                    strategy="afterInteractive"
-                    src="https://www.googletagmanager.com/gtag/js?id=G-YT5DG6984J"
-                />
-                <Script
-                    id="google-analytics-script"
-                    strategy="afterInteractive"
-                >
-                    {`
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-                        gtag('config', 'G-YT5DG6984J');  
-                `}
-                </Script>
             </head>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} ${jura.variable} ${damion.variable} antialiased overflow-x-hidden`}
@@ -85,6 +77,7 @@ export default function RootLayout({
                     <Footer />
                 </div>
             </body>
+            <GoogleAnalytics gaId="G-YT5DG6984J" />
         </html>
     );
 }

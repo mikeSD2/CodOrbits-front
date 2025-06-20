@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
             return {
                 title:
                     yoastSEO.title ||
-                    "С чего начать программирование на Java — бесплатный курс от CodOrbits!",
+                    "С чего начать программирование на Java. Бесплатный курс от CodOrbits",
                 description:
                     yoastSEO.description ||
                     "Бесплатный курс по Java от CodOrbits для тех, кто хочет начать программировать или углубить знания. Разбираем все от основ до фреймворков на практических примарах.",
@@ -82,7 +82,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
         // Default metadata if Yoast data isn't available
         return {
-            title: "С чего начать программирование на Java — бесплатный курс от CodOrbits!",
+            title: "С чего начать программирование на Java. Бесплатный курс от CodOrbits",
             description:
                 "Бесплатный курс по Java от CodOrbits для тех, кто хочет начать программировать или углубить знания. Разбираем все от основ до фреймворков на практических примарах.",
             alternates: {
@@ -92,7 +92,7 @@ export async function generateMetadata(): Promise<Metadata> {
     } catch (error) {
         console.error("Error fetching home page metadata:", error);
         return {
-            title: "С чего начать программирование на Java — бесплатный курс от CodOrbits!",
+            title: "С чего начать программирование на Java. Бесплатный курс от CodOrbits",
             description:
                 "Бесплатный курс по Java от CodOrbits для тех, кто хочет начать программировать или углубить знания. Разбираем все от основ до фреймворков на практических примарах.",
             alternates: {
