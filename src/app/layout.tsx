@@ -12,7 +12,6 @@ import { Jura } from "next/font/google";
 
 // Импортируйте Damion шрифтs
 import { Damion } from "next/font/google";
-import Script from "next/script";
 
 const jura = Jura({
     subsets: ["latin"],
