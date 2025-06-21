@@ -4,16 +4,23 @@ const securityHeaders = [
     {
         key: "Content-Security-Policy",
         value: `
-        default-src 'none';
-        script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com;
-        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-        img-src 'self' https: data:;
-        media-src 'self' blob:;
-        font-src 'self' https://fonts.gstatic.com;
-        connect-src 'self' https://codorbits-api.online https://www.google.com;
-        frame-src 'self' https://www.google.com;
-        object-src 'none';
-      `
+  default-src 'none';
+  script-src 'self' 'unsafe-inline'
+              https://www.googletagmanager.com
+              https://www.google-analytics.com
+              https://www.gstatic.com
+              https://www.google.com/recaptcha/
+              https://analytics.ahrefs.com;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  img-src 'self' https: data:;
+  media-src 'self' blob:;
+  font-src 'self' https://fonts.gstatic.com;
+  connect-src 'self' https://codorbits-api.online
+              https://www.google-analytics.com
+              https://www.google.com/recaptcha/;
+  frame-src 'self' https://www.google.com;
+  object-src 'none';
+`
             .replace(/\s{2,}/g, " ")
             .trim(),
     },

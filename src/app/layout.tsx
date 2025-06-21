@@ -7,10 +7,10 @@ import "./styles/gutenberg-style.min.css";
 import "./styles/wp-custom.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-// Импортируйте Jura шрифт
+// Импортируйте Jura шрифт3
 import { Jura } from "next/font/google";
 
-// Импортируйте Damion шрифтs f
+// Импортируйте Damion шрифт3
 import { Damion } from "next/font/google";
 
 const jura = Jura({
@@ -76,7 +76,7 @@ export default function RootLayout({
                     <Footer />
                 </div>
             </body>
-            <GoogleAnalytics gaId="G-YT5DG6984J" />
+            <GoogleAnalytics gaId="GT-5D9JZ73R" />
         </html>
     );
 }
