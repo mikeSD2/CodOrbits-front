@@ -10,7 +10,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 // Импортируйте Jura шрифт
 import { Jura } from "next/font/google";
 
-// Импортируйте Damion шрифтs
+// Импортируйте Damion шрифтs f
 import { Damion } from "next/font/google";
 
 const jura = Jura({
