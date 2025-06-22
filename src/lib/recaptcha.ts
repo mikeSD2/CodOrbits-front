@@ -1,5 +1,5 @@
 // lib/recaptcha.ts
-const siteKey = "6Lc4S2MrAAAAAMR3E6WymQI_dphOVmyCNeQ-hwx2";
+const siteKey = process.env.RECAPTCHA_SITE_KEY ?? "";
 
 export const loadRecaptcha = () => {
     return new Promise<void>((resolve) => {

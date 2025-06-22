@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "Java Coding Website",
     description: "Learn Java coding with our tutorials",
     icons: {
-        icon: "/images/favicon.svg",
+        icon: "/images/favicon.png",
     },
     other: {
         "yandex-verification": "112fa41e5b9c2a04",
@@ -56,10 +56,10 @@ export default function RootLayout({
             <head>
                 <link
                     rel="shortcut icon"
-                    href="/favicon.png"
+                    href="/images/favicon.png"
                     type="image/png"
                 />
-                <link rel="apple-touch-icon" href="/favicon.png" />
+                <link rel="apple-touch-icon" href="/images/favicon.png" />
 
                 <script
                     src="https://analytics.ahrefs.com/analytics.js"

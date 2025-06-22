@@ -5,7 +5,7 @@ import crypto from "crypto";
 const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY;
 const MAILCHIMP_AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
 const MAILCHIMP_API_SERVER = process.env.MAILCHIMP_API_SERVER;
-const RECAPTCHA_SECRET_KEY = "6Lc4S2MrAAAAAChMRqvzBvhtbx2bk6eeCF-tnjoO";
+const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 
 // Функция для проверки reCAPTCHA токена
 async function verifyRecaptchaToken(token: string): Promise<boolean> {

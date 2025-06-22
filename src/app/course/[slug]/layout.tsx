@@ -171,7 +171,7 @@ export default async function CourseLayout({
     return (
         <PostDataProvider postData={postData}>
             <>
-                <section className="bg-[var(--color-secondary)] rounded-[var(--border-radius)] p-4 md:p-6 lg:p-8 relative mb-12">
+                <section className="bg-[var(--color-secondary)] rounded-[var(--border-radius)] p-4 md:p-6 lg:p-8 relative mb-12 mt-4 ">
                     <CategoryInfo />
                 </section>
                 <div className="flex w-full">
