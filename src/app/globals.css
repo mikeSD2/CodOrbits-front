@@ -253,3 +253,10 @@ body {
         font-size: calc(var(--font-size-headings-large-sm)-7px) !important;
     }
 }
+
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+body {
+    top: 0px !important;
+}
