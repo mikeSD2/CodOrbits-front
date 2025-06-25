@@ -62,5 +62,4 @@ const nextConfig = {
             "https://codorbits-api.online/wp-json/wp/v2",
     },
 };
-
 module.exports = nextConfig;

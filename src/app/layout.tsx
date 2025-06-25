@@ -7,7 +7,6 @@ import "./globals.css";
 import "./styles/gutenberg-style.min.css";
 import "./styles/wp-custom.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import GoogleTranslate from "./components/GoogleTranslate";
 
 // Импортируйте Jura шрифт3
 import { Jura } from "next/font/google";
@@ -48,7 +47,7 @@ export const metadata: Metadata = {
     },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
@@ -56,12 +55,7 @@ export default function RootLayout({
     return (
         <html lang="ru">
             <head>
-                <link
-                    rel="shortcut icon"
-                    href="/images/favicon.png"
-                    type="image/png"
-                />
-                <link rel="apple-touch-icon" href="/images/favicon.png" />
+                <link rel="icon" href="/images/favicon.ico" />
 
                 <meta name="yandex-verification" content="3614f4e633fb4b3b" />
 
@@ -109,7 +103,6 @@ export default function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} ${jura.variable} ${damion.variable} antialiased overflow-x-hidden`}
             >
-                <GoogleTranslate />
                 <div className="w-[92%] sm:w-[88%] max-w-[var(--container-width)] mx-auto">
                     <Header />
                     {children}

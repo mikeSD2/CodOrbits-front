@@ -28,7 +28,7 @@ export default function FeaturesSection() {
                     </h3>
                     <hr className="border-gray-300 mb-2" />
                     <p className="font-thin">
-                        Коллекцияd из более чем двухсот уроков, охватывающих все
+                        Коллекция из более чем двухсот уроков, охватывающих все
                         аспекты Java разработки.
                     </p>
                 </div>
