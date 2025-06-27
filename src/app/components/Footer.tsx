@@ -67,7 +67,7 @@ const Footer = () => {
         }
     };
     return (
-        <footer className="py-10">
+        <footer className="py-10" data-nosnippet>
             <Image
                 src="/images/rocket-delimeter.svg"
                 alt="Rocket"
@@ -81,7 +81,7 @@ const Footer = () => {
                 <div className="sm:col-span-2 space-y-8 flex md:block flex-col items-center">
                     <div className="flex items-center space-x-4">
                         <Image
-                            src="/images/siteLogo.svg"
+                            src="/images/siteLogo.png"
                             alt="Logo"
                             width={40}
                             height={40}
@@ -89,7 +89,10 @@ const Footer = () => {
                         />
                         <h2 className="text-2xl font-bold">CodOrbits.com</h2>
                     </div>
-                    <p className="text-[16px] font-light text-center md:text-start">
+                    <p
+                        className="text-[16px] font-light text-center md:text-start"
+                        data-nosnippet
+                    >
                         CodOrbits предлагает полный курс по Java разработке: от
                         основ до фреймворков и DevOps. Без воды, с практическими
                         примерами и глубоким разбором сложных тем. Идеально для

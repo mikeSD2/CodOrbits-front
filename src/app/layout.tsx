@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     title: "Java Coding Website",
     description: "Learn Java coding with our tutorials",
     icons: {
-        icon: "/images/favicon.png",
+        icon: "/favicon.ico",
     },
     other: {
         "yandex-verification": "112fa41e5b9c2a04",
@@ -55,7 +55,12 @@ export default async function RootLayout({
     return (
         <html lang="ru">
             <head>
-                <link rel="icon" href="/images/favicon.ico" />
+                <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+                <link
+                    rel="shortcut icon"
+                    href="/favicon.ico"
+                    type="image/x-icon"
+                />
 
                 <meta name="yandex-verification" content="3614f4e633fb4b3b" />
 

@@ -9,11 +9,14 @@ export default function Header() {
     const [isHovering, setIsHovering] = useState(false);
     return (
         <>
-            <header className="flex justify-between items-center py-4 bg-white mt-4">
+            <header
+                className="flex justify-between items-center py-4 bg-white mt-4"
+                data-nosnippet
+            >
                 <Link href="/">
                     <div className="flex items-center">
                         <Image
-                            src="/images/siteLogo.svg"
+                            src="/images/siteLogo.png"
                             alt="Logo"
                             width={35}
                             height={35}
@@ -98,7 +101,7 @@ export default function Header() {
                     <Link href="/">
                         <div className="flex items-center">
                             <Image
-                                src="/images/siteLogo.svg"
+                                src="/images/siteLogo.png"
                                 alt="Logo"
                                 width={35}
                                 height={35}
