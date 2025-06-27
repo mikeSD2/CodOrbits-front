@@ -23,10 +23,10 @@ export async function generateMetadata(): Promise<Metadata> {
             return {
                 title:
                     yoastSEO.title ||
-                    "С чего начать программирование на Java. Бесплатный курс от CodOrbits",
+                    "Бесплатный курс Spring и Hibernate — изучение Java онлайн | CodeOrbits",
                 description:
                     yoastSEO.description ||
-                    "Бесплатный курс по Java от CodOrbits для тех, кто хочет начать программировать или углубить знания. Разбираем все от основ до фреймворков на практических примарах.",
+                    "Java-разработчик в 2025 зарабатывает от $1500! Выучи Java с нуля, разбирая реальные проекты. Освой Spring, Hibernate и готовься к офферу.",
                 alternates: {
                     canonical: "https://www.codorbits.com",
                 },
@@ -82,9 +82,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
         // Default metadata if Yoast data isn't available
         return {
-            title: "С чего начать программирование на Java. Бесплатный курс от CodOrbits",
+            title: "Бесплатный курс Spring и Hibernate — изучение Java онлайн | CodeOrbits",
             description:
-                "Бесплатный курс по Java от CodOrbits для тех, кто хочет начать программировать или углубить знания. Разбираем все от основ до фреймворков на практических примарах.",
+                "Java-разработчик в 2025 зарабатывает от $1500! Выучи Java с нуля, разбирая реальные проекты. Освой Spring, Hibernate и готовься к офферу.",
             alternates: {
                 canonical: "https://www.codorbits.com",
             },
@@ -92,9 +92,9 @@ export async function generateMetadata(): Promise<Metadata> {
     } catch (error) {
         console.error("Error fetching home page metadata:", error);
         return {
-            title: "С чего начать программирование на Java. Бесплатный курс от CodOrbits",
+            title: "Бесплатный курс Spring и Hibernate — изучение Java онлайн | CodeOrbits",
             description:
-                "Бесплатный курс по Java от CodOrbits для тех, кто хочет начать программировать или углубить знания. Разбираем все от основ до фреймворков на практических примарах.",
+                "Java-разработчик в 2025 зарабатывает от $1500! Выучи Java с нуля, разбирая реальные проекты. Освой Spring, Hibernate и готовься к офферу.",
             alternates: {
                 canonical: "https://www.codorbits.com",
             },

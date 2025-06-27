@@ -26,7 +26,7 @@ export default function StagesSection() {
                     <div className="w-full lg:w-[55%]">
                         <div className="flex items-start gap-5 mb-4">
                             <Image
-                                src="/images/siteLogo.svg"
+                                src="/images/siteLogo.png"
                                 alt="Small Icon"
                                 width={72}
                                 height={72}
@@ -59,21 +59,13 @@ export default function StagesSection() {
                         <div className="text-[15.5px] md:text-[20px] lg:text-[15.5px] xl:text-[20px] inline-flex items-center border border-black rounded-full p-3 px-5 sm:px-3 w-full">
                             <span className="mr-2 font-[family-name:var(--font-jura)] flex items-center">
                                 <span className="font-semibold">
-                                    Средний доход Java разработчика →{" "}
+                                    Средний доход Java разработчика&nbsp;&nbsp;
+                                    →{" "}
                                 </span>
-                                <span className="text-green-600 font-bold ml-1">
-                                    $3000
+                                <span className="text-blue-600 font-bold ml-1">
+                                    &nbsp;&nbsp;$3000
                                 </span>
                             </span>
-                            <div className="flex items-center">
-                                <span className="text-sm xl:text-lg">💰</span>
-                                <span className="text-sm xl:text-lg ml-1 hidden sm:block">
-                                    💎
-                                </span>
-                                <span className="text-sm xl:text-lg ml-1 hidden sm:block">
-                                    🚀
-                                </span>
-                            </div>
                         </div>
                     </div>
                     <div className="w-full lg:w-[45%]">
