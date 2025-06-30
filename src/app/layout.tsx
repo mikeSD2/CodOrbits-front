@@ -13,6 +13,7 @@ import { Jura } from "next/font/google";
 
 // Импортируйте Damion шрифт3
 import { Damion } from "next/font/google";
+import GoogleTranslate from "./components/GoogleTranslate";
 
 const jura = Jura({
     subsets: ["latin"],
@@ -108,6 +109,7 @@ export default async function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} ${jura.variable} ${damion.variable} antialiased overflow-x-hidden`}
             >
+                <GoogleTranslate />
                 <div className="w-[92%] sm:w-[88%] max-w-[var(--container-width)] mx-auto">
                     <Header />
                     {children}

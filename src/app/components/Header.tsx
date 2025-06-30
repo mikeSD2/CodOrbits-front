@@ -31,7 +31,7 @@ export default function Header() {
                 <nav className="hidden md:flex space-x-[34px] lg:space-x-[54px] text-[16px] lg:text-[20px]">
                     <Link href="/">Главная</Link>
                     <Link href="/#FeaturesSection">О нас</Link>
-                    <Link href="/course">Курс</Link>
+                    <Link href="/course">Уроки</Link>
                     <Link href="/contacts">Контакты</Link>
                 </nav>
                 <div className="flex items-center space-x-[-5px]">

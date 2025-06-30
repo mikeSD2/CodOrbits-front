@@ -260,3 +260,15 @@ body {
 body {
     top: 0px !important;
 }
+
+/* Hide Google Translate Elements */
+#google_translate_element,
+.skiptranslate {
+    display: none !important;
+}
+
+/* This is to prevent the banner from pushing the content down */
+html.translated-ltr body,
+html.translated-cml body {
+    top: 0 !important;
+}
