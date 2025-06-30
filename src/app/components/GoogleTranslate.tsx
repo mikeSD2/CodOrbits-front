@@ -19,8 +19,25 @@ export default function GoogleTranslate() {
             ""
         ).toLowerCase();
         const langCode = userLang.split("-")[0];
+        const excludedLangs = [
+            "ru", // Russian
+            "uk", // Ukrainian
+            "be", // Belarusian
+            "uz", // Uzbek
+            "kk", // Kazakh
+            "ka", // Georgian
+            "az", // Azerbaijani
+            "lt", // Lithuanian
+            "ro", // Romanian / Moldovan
+            "lv", // Latvian
+            "ky", // Kyrgyz
+            "tg", // Tajik
+            "hy", // Armenian
+            "tk", // Turkmen
+            "et", // Estonian
+        ];
 
-        if (userLang && !userLang.startsWith("ru")) {
+        if (userLang && !excludedLangs.includes(langCode)) {
             setShow(true);
             const includedLanguages = ["en", "fr", "de", "es"];
             if (includedLanguages.includes(langCode)) {

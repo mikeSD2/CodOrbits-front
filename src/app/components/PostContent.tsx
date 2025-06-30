@@ -29,7 +29,7 @@ const preprocessHTML = (html: string): string => {
         (_, lang, code) => {
             const decodedCode = decode(code);
             // Применяем замену типографских кавычек и decode только к коду
-            const normalizedCode = decodedCode.replace(/[""]/g, '"');
+            const normalizedCode = decodedCode.replace(/[“”]/g, '"');
 
             return `<syntax-highlighter data-language="${lang}">${encodeURIComponent(
                 normalizedCode
@@ -60,8 +60,28 @@ export default function PostContent({ content }: PostContentProps) {
         const userLang = (
             legacyNavigator.language || legacyNavigator.userLanguage
         )?.toLowerCase();
-        if (userLang && !userLang.startsWith("ru")) {
-            setIsRussian(false);
+        if (userLang) {
+            const langCode = userLang.split("-")[0];
+            const excludedLangs = [
+                "ru", // Russian
+                "uk", // Ukrainian
+                "be", // Belarusian
+                "uz", // Uzbek
+                "kk", // Kazakh
+                "ka", // Georgian
+                "az", // Azerbaijani
+                "lt", // Lithuanian
+                "ro", // Romanian / Moldovan
+                "lv", // Latvian
+                "ky", // Kyrgyz
+                "tg", // Tajik
+                "hy", // Armenian
+                "tk", // Turkmen
+                "et", // Estonian
+            ];
+            if (!excludedLangs.includes(langCode)) {
+                setIsRussian(false);
+            }
         }
     }, []);
 
@@ -90,12 +110,24 @@ export default function PostContent({ content }: PostContentProps) {
                                         React.isValidElement(children) &&
                                         children.type === "code"
                                     ) {
-                                        // Заменяем <code> на <span> для перевода, сохраняя все свойства
+                                        // Явно приводим тип, чтобы TypeScript был уверен в структуре props.
+                                        const element =
+                                            children as React.ReactElement<{
+                                                children: React.ReactNode;
+                                                [key: string]: unknown;
+                                            }>;
+
+                                        const {
+                                            children: codeChildren,
+                                            ...restProps
+                                        } = element.props;
+
                                         return (
                                             <pre {...props}>
                                                 {React.createElement(
                                                     "span",
-                                                    children.props
+                                                    restProps,
+                                                    codeChildren
                                                 )}
                                             </pre>
                                         );
@@ -146,3 +178,6 @@ export default function PostContent({ content }: PostContentProps) {
 
     return <div className="wp-content space-y-4">{parsedContent}</div>;
 }
+/*чат у меня вместо System.out.println(a) ; вот такое "System . out . println ( a ) ;". гугл вставляет пробелы. Пожалуйста поудаляй в примерах кода до точки и после точки пробел, все остально не слишком важно. вот как это в браузере выглядит "<span class="language-java" style="color: black; background: none; text-shadow: white 0px 1px; font-family: Consolas, Monaco, &quot;Andale Mono&quot;, &quot;Ubuntu Mono&quot;, monospace; font-size: 1em; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none;"><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 3.25em; padding-right: 1em; text-align: right; user-select: none; color: slategray;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1</font></font></span><span class="token" style="color: rgb(0, 119, 170);"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">class </font></font></span><font style="vertical-align: inherit;"><span class="token" style="color: rgb(221, 74, 104);"><font style="vertical-align: inherit;">test</font></span></font><span> </span><span class="token" style="color: rgb(221, 74, 104);"><font style="vertical-align: inherit;"></font></span><span>
+</span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 3.25em; padding-right: 1em; text-align: right; user-select: none; color: slategray;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2</font></font></span><span></span><span class="token" style="color: rgb(153, 153, 153);"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{</font></font></span><span>
+</span><span class="linenumber react-syntax-highlighter-line-number" style="display: inline-block; min-width: 3.25em; padding-right: 1em; text-align: right; user-select: none; color: slategray;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3</font></font></span><span>    </span><span class="token" style="color: rgb(0, 119, 170);"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">public </font></font></span><font style="vertical-align: inherit;"><span class="token" style="color: rgb(0, 119, 170);"><font style="vertical-align: inherit;">static </font></span><span class="token" style="color: rgb(0, 119, 170);"><font style="vertical-align: inherit;">void </font></span><span class="token" style="color: rgb(221, 74, 104);"><font style="vertical-align: inherit;">main </font></span><span class="token" style="color: rgb(153, 153, 153);"><font style="vertical-align: inherit;">( </font></span><span class="token" style="color: rgb(221, 74, 104);"><font style="vertical-align: inherit;">String </font></span><span class="token" style="color: rgb(153, 153, 153);"><font style="vertical-align: inherit;">[ </font></span><span class="token" style="color: rgb(153, 153, 153);"><font style="vertical-align: inherit;">] </font></span><span><font style="vertical-align: inherit;">args </font></span><span class="token" style="color: rgb(153, 153, 153);"><font style="vertical-align: inherit;">)</font></span></font><span> </span><span class="token" style="color: rgb(0, 119, 170);"><font style="vertical-align: inherit;"></font></span><span> </span><span class="token" style="color: rgb(0, 119, 170);"><font style="vertical-align: inherit;"></font></span><span> </span><span class="token" style="color: rgb(221, 74, 104);"><font style="vertical-align: inherit;"></font></span><span class="token" style="color: rgb(153, 153, 153);"><font style="vertical-align: inherit;"></font></span><span class="token" style="color: rgb(221, 74, 104);"><font style="vertical-align: inherit;"></font></span><span> </span><span class="token" style="color: rgb(153, 153, 153);"><font style="vertical-align: inherit;"></font></span><span class="token" style="color: rgb(153, 153, 153);"><font style="vertical-align: inherit;"></font></span><span><font style="vertical-align: inherit;"></font></span><span class="token" style="color: rgb(153, 153, 153);"><font style="vertical-align: inherit;"></font></span><span>" но учитывай что нужно дождаться когда google переводчик переведет страницу а только потом удалять пробелы*/
