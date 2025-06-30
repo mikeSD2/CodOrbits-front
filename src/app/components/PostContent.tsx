@@ -6,13 +6,19 @@ import parse, {
     Element,
     HTMLReactParserOptions,
     Text,
+    DOMNode,
 } from "html-react-parser";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { decode } from "html-entities";
+import React from "react";
 
 interface PostContentProps {
     content: string;
+}
+
+interface NavigatorWithLegacyLanguage extends Navigator {
+    userLanguage?: string;
 }
 
 // Шаг 1: Препроцессинг — замена <SyntaxHighlighter> на безопасный тэг
@@ -49,8 +55,10 @@ export default function PostContent({ content }: PostContentProps) {
     }, []);
 
     useEffect(() => {
+        const legacyNavigator =
+            navigator as unknown as NavigatorWithLegacyLanguage;
         const userLang = (
-            navigator.language || (navigator as any).userLanguage
+            legacyNavigator.language || legacyNavigator.userLanguage
         )?.toLowerCase();
         if (userLang && !userLang.startsWith("ru")) {
             setIsRussian(false);
@@ -76,6 +84,24 @@ export default function PostContent({ content }: PostContentProps) {
                                 language={language}
                                 style={prism}
                                 showLineNumbers
+                                PreTag={({ children, ...props }) => {
+                                    if (
+                                        !isRussian &&
+                                        React.isValidElement(children) &&
+                                        children.type === "code"
+                                    ) {
+                                        // Заменяем <code> на <span> для перевода, сохраняя все свойства
+                                        return (
+                                            <pre {...props}>
+                                                {React.createElement(
+                                                    "span",
+                                                    children.props
+                                                )}
+                                            </pre>
+                                        );
+                                    }
+                                    return <pre {...props}>{children}</pre>;
+                                }}
                                 className="p-4 rounded-lg block w-full h-full"
                                 customStyle={{
                                     fontSize,
@@ -106,7 +132,10 @@ export default function PostContent({ content }: PostContentProps) {
 
                 return (
                     <span {...props}>
-                        {domToReact(domNode.children as any, parserOptions)}
+                        {domToReact(
+                            domNode.children as DOMNode[],
+                            parserOptions
+                        )}
                     </span>
                 );
             }

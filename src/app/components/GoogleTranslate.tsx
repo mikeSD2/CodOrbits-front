@@ -2,12 +2,19 @@
 
 import { useEffect, useState } from "react";
 
+// Расширяем стандартный тип Navigator, чтобы включить устаревшее свойство userLanguage
+interface NavigatorWithLegacyLanguage extends Navigator {
+    userLanguage?: string;
+}
+
 export default function GoogleTranslate() {
     const [show, setShow] = useState(false);
 
     useEffect(() => {
+        const legacyNavigator =
+            navigator as unknown as NavigatorWithLegacyLanguage;
         const userLang = (
-            navigator.language || (navigator as any).userLanguage
+            legacyNavigator.language || legacyNavigator.userLanguage
         ).toLowerCase();
         const langCode = userLang.split("-")[0];
 
