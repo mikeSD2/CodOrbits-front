@@ -14,7 +14,9 @@ export default function GoogleTranslate() {
         const legacyNavigator =
             navigator as unknown as NavigatorWithLegacyLanguage;
         const userLang = (
-            legacyNavigator.language || legacyNavigator.userLanguage
+            legacyNavigator.language ||
+            legacyNavigator.userLanguage ||
+            ""
         ).toLowerCase();
         const langCode = userLang.split("-")[0];
 
