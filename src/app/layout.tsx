@@ -108,6 +108,7 @@ export default async function RootLayout({
             </head>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} ${jura.variable} ${damion.variable} antialiased overflow-x-hidden`}
+                data-nosnippet
             >
                 <GoogleTranslate />
                 <div className="w-[92%] sm:w-[88%] max-w-[var(--container-width)] mx-auto">
