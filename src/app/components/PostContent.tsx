@@ -160,7 +160,7 @@ export default function PostContent({ content }: PostContentProps) {
 
                 props.className = `${
                     props.className || ""
-                } font-[family-name:var(--font-jura)] bg-gray-100 py-0.5 px-1 rounded-md`;
+                } font-[monospace] bg-gray-100 py-0.5 px-1 text-[0.95rem] sm:text-[1.1rem] rounded-md`;
 
                 return (
                     <span {...props}>
