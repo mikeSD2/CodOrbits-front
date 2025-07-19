@@ -145,7 +145,7 @@ export default function Header() {
                         className="block"
                         onClick={() => setIsMobileMenuOpen(false)}
                     >
-                        Курс
+                        Уроки
                     </Link>
                     <Link
                         href="/contacts"
