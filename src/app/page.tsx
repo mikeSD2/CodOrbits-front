@@ -23,10 +23,10 @@ export async function generateMetadata(): Promise<Metadata> {
             return {
                 title:
                     yoastSEO.title ||
-                    "Бесплатный курс Spring и Hibernate — изучение Java онлайн | CodeOrbits",
+                    "Бесплатный курс Java: с нуля до Spring и Hibernate | Codorbits",
                 description:
                     yoastSEO.description ||
-                    "Java-разработчик в 2025 зарабатывает от $1500! Выучи Java с нуля, разбирая реальные проекты. Освой Spring, Hibernate и готовься к офферу.",
+                    "Идеальный курс для старта и развития в Java: от основ до Spring, Hibernate и Docker. Освойте востребованные навыки на реальных задачах и станьте разработчиком, за которым охотятся работодатели.",
                 alternates: {
                     canonical: "https://www.codorbits.com",
                 },
@@ -82,9 +82,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
         // Default metadata if Yoast data isn't available
         return {
-            title: "Бесплатный курс Spring и Hibernate — изучение Java онлайн | CodeOrbits",
+            title: "Бесплатный курс Java: с нуля до Spring и Hibernate | Codorbits",
             description:
-                "Java-разработчик в 2025 зарабатывает от $1500! Выучи Java с нуля, разбирая реальные проекты. Освой Spring, Hibernate и готовься к офферу.",
+                "Идеальный курс для старта и развития в Java: от основ до Spring, Hibernate и Docker. Освойте востребованные навыки на реальных задачах и станьте разработчиком, за которым охотятся работодатели.",
             alternates: {
                 canonical: "https://www.codorbits.com",
             },
@@ -92,9 +92,9 @@ export async function generateMetadata(): Promise<Metadata> {
     } catch (error) {
         console.error("Error fetching home page metadata:", error);
         return {
-            title: "Бесплатный курс Spring и Hibernate — изучение Java онлайн | CodeOrbits",
+            title: "Бесплатный курс Java: с нуля до Spring и Hibernate | Codorbits",
             description:
-                "Java-разработчик в 2025 зарабатывает от $1500! Выучи Java с нуля, разбирая реальные проекты. Освой Spring, Hibernate и готовься к офферу.",
+                "Идеальный курс для старта и развития в Java: от основ до Spring, Hibernate и Docker. Освойте востребованные навыки на реальных задачах и станьте разработчиком, за которым охотятся работодатели.",
             alternates: {
                 canonical: "https://www.codorbits.com",
             },
