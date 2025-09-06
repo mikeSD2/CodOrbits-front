@@ -49,13 +49,15 @@ export async function generateMetadata({
         const { yoastSEO } = post;
 
         return {
-            title: yoastSEO.title || `Course - ${post.title}`,
+            title: `Курс Java: ${yoastSEO.title || post.title} - Codorbits`,
             description: yoastSEO.description || `Learn about ${post.title}`,
             alternates: {
                 canonical: `https://www.codorbits.com/course/${post.slug}/`,
             },
             openGraph: {
-                title: yoastSEO.og_title || yoastSEO.title || post.title,
+                title: `Курс Java: ${
+                    yoastSEO.og_title || yoastSEO.title || post.title
+                } - Codorbits`,
                 description:
                     yoastSEO.og_description ||
                     yoastSEO.description ||
@@ -81,7 +83,9 @@ export async function generateMetadata({
                     | "summary_large_image"
                     | "app"
                     | "player",
-                title: yoastSEO.twitter_title || yoastSEO.title || post.title,
+                title: `Курс Java: ${
+                    yoastSEO.twitter_title || yoastSEO.title || post.title
+                } - Codorbits`,
                 description:
                     yoastSEO.twitter_description ||
                     yoastSEO.description ||
@@ -109,10 +113,10 @@ export async function generateMetadata({
 
     // Fallback to basic metadata if Yoast data isn't available
     return {
-        title: `Course - ${post.title}`,
+        title: `Курс Java: ${post.title} - Codorbits`,
         description: `Learn about ${post.title}`,
         openGraph: {
-            title: post.title,
+            title: `Курс Java: ${post.title} - Codorbits`,
             description: `Learn about ${post.title}`,
             url: `https://www.codorbits.com/course/${post.slug}/`,
             images: [{ url: post.coverImage }],
