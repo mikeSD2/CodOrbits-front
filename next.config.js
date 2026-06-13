@@ -52,7 +52,7 @@ const nextConfig = {
       },
     ];
   },
-  // Enable trailing slash to better match WordPress URL structure
+  // Enable trailing slash to better match WordPress URL structuree
   trailingSlash: true,
   // Environment variables available on the client
   env: {
